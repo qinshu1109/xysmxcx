@@ -1,0 +1,373 @@
+page {
+  min-height: 100vh;
+  background: #fff8f4;
+}
+
+.mine-page {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #fff8f3 0%, #fff5f1 48%, #ffffff 100%);
+  overflow: hidden;
+}
+
+.custom-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  background: linear-gradient(180deg, #fff8f3 0%, rgba(255, 248, 243, 0.96) 100%);
+}
+
+.custom-nav__title {
+  position: absolute;
+  left: 0;
+  right: 0;
+  color: #111111;
+  font-size: 34rpx;
+  font-weight: 700;
+  text-align: center;
+}
+
+.mine-scroll {
+  height: 100vh;
+}
+
+.mine-content {
+  width: 750rpx;
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding-left: 32rpx;
+  padding-right: 32rpx;
+  padding-bottom: calc(132rpx + env(safe-area-inset-bottom));
+}
+
+.guest-block {
+  position: relative;
+  width: 686rpx;
+  height: 515rpx;
+  margin: 28rpx auto 0;
+  overflow: hidden;
+}
+
+.guest-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  width: 686rpx;
+  height: 515rpx;
+}
+
+.guest-main {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 94rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.guest-mascot {
+  display: block;
+  width: 158rpx;
+  height: 158rpx;
+}
+
+.guest-title {
+  display: block;
+  width: 100%;
+  margin-top: 28rpx;
+  color: #222222;
+  font-size: 28rpx;
+  font-weight: 700;
+  line-height: 40rpx;
+  text-align: center;
+}
+
+.login-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 310rpx;
+  height: 70rpx;
+  margin: 26rpx auto 0;
+  padding: 0;
+  border: 0;
+  border-radius: 999rpx;
+  color: #ffffff;
+  background: linear-gradient(135deg, #ff5966 0%, #ff7f72 100%);
+  box-shadow: 0 12rpx 28rpx rgba(255, 93, 103, 0.24);
+  font-size: 28rpx;
+  font-weight: 700;
+  line-height: 70rpx;
+}
+
+.login-button::after {
+  border: 0;
+}
+
+.profile-card {
+  position: relative;
+  width: 686rpx;
+  height: 217rpx;
+  margin: 34rpx auto 0;
+  overflow: hidden;
+  border-radius: 28rpx;
+}
+
+.profile-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  width: 686rpx;
+  height: 217rpx;
+  z-index: 2;
+}
+
+.profile-avatar-box {
+  position: absolute;
+  left: 65rpx;
+  top: 38rpx;
+  width: 131rpx;
+  height: 140rpx;
+  box-sizing: border-box;
+  border: 0;
+  border-radius: 24rpx;
+  background: #f5eee9;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.profile-avatar {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.profile-info {
+  position: absolute;
+  left: 224rpx;
+  right: 28rpx;
+  top: 50rpx;
+  z-index: 3;
+}
+
+.profile-name-row {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.profile-name {
+  display: block;
+  max-width: 220rpx;
+  color: #111111;
+  font-size: 31rpx;
+  font-weight: 800;
+  line-height: 42rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.profile-role {
+  display: block;
+  flex: 0 0 auto;
+  height: 32rpx;
+  margin-left: 14rpx;
+  padding: 0 12rpx;
+  border-radius: 8rpx;
+  color: #ff6b6f;
+  background: rgba(255, 236, 238, 0.92);
+  font-size: 20rpx;
+  line-height: 32rpx;
+  white-space: nowrap;
+}
+
+.profile-account,
+.profile-slogan {
+  display: block;
+  margin-top: 10rpx;
+  color: #555555;
+  font-size: 24rpx;
+  line-height: 34rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.stats-card {
+  display: flex;
+  align-items: center;
+  width: 686rpx;
+  height: 132rpx;
+  margin: 28rpx auto 0;
+  border-radius: 24rpx;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 12rpx 30rpx rgba(132, 88, 70, 0.08);
+}
+
+.stats-item {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.stats-title {
+  display: block;
+  color: #222222;
+  font-size: 25rpx;
+  line-height: 36rpx;
+  text-align: center;
+}
+
+.stats-number {
+  display: block;
+  margin-top: 8rpx;
+  color: #ff666f;
+  font-size: 48rpx;
+  font-weight: 800;
+  line-height: 56rpx;
+  text-align: center;
+}
+
+.stats-number--orange {
+  color: #ff9e18;
+}
+
+.stats-divider {
+  width: 1rpx;
+  height: 74rpx;
+  background: rgba(255, 150, 130, 0.35);
+}
+
+.menu-list {
+  width: 686rpx;
+  margin: 24rpx auto 0;
+}
+
+.menu-list--logged {
+  overflow: hidden;
+  border-radius: 26rpx;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 12rpx 30rpx rgba(132, 88, 70, 0.08);
+}
+
+.menu-card {
+  display: flex;
+  align-items: center;
+  width: 686rpx;
+  height: 108rpx;
+  margin-bottom: 18rpx;
+  padding: 0 24rpx;
+  box-sizing: border-box;
+  border-radius: 24rpx;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 12rpx 30rpx rgba(132, 88, 70, 0.08);
+}
+
+.menu-card--inset {
+  margin-bottom: 0;
+  border-radius: 0;
+  box-shadow: none;
+  border-bottom: 1rpx solid rgba(229, 219, 214, 0.72);
+}
+
+.menu-card--inset:last-child {
+  border-bottom: 0;
+}
+
+.menu-icon {
+  display: block;
+  flex: 0 0 58rpx;
+  width: 58rpx;
+  height: 58rpx;
+  margin-right: 28rpx;
+}
+
+.menu-title {
+  display: block;
+  flex: 1;
+  min-width: 0;
+  color: #222222;
+  font-size: 27rpx;
+  font-weight: 600;
+  line-height: 38rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.menu-arrow {
+  display: block;
+  flex: 0 0 32rpx;
+  width: 32rpx;
+  height: 32rpx;
+  margin-left: 16rpx;
+}
+
+.mine-tabbar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 50;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+  height: calc(106rpx + env(safe-area-inset-bottom));
+  padding-bottom: env(safe-area-inset-bottom);
+  background: #ffffff;
+  box-shadow: 0 -6rpx 24rpx rgba(0, 0, 0, 0.04);
+}
+
+.mine-tab-item {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 106rpx;
+  box-sizing: border-box;
+  padding-top: 10rpx;
+  color: #4a4a4a;
+}
+
+.mine-tab-icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 56rpx;
+  width: 56rpx;
+  height: 56rpx;
+}
+
+.mine-tab-icon {
+  display: block;
+  flex-shrink: 0;
+  width: 56rpx;
+  height: 56rpx;
+}
+
+.mine-tab-label {
+  display: block;
+  width: 100%;
+  height: 30rpx;
+  margin-top: 4rpx;
+  color: inherit;
+  font-size: 22rpx;
+  line-height: 26rpx;
+  text-align: center;
+  white-space: nowrap;
+  letter-spacing: 0;
+}
+
+.mine-tab-item.is-active {
+  color: #ff6b6f;
+}

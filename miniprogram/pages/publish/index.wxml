@@ -1,0 +1,156 @@
+<view class="publish-page">
+  <view class="custom-nav" style="height: {{navHeight}}px;">
+    <view
+      class="custom-nav__back"
+      style="top: {{navContentTop}}px; height: {{menuHeight}}px;"
+      bindtap="onTapBack"
+    >
+      <image class="custom-nav__back-icon" src="{{assets.back}}" mode="aspectFit" />
+    </view>
+    <view
+      class="custom-nav__title"
+      style="top: {{navContentTop}}px; height: {{menuHeight}}px; line-height: {{menuHeight}}px;"
+    >
+      {{title}}
+    </view>
+  </view>
+
+  <scroll-view class="publish-scroll" scroll-y enhanced="{{true}}" show-scrollbar="{{false}}">
+    <view class="publish-content" style="padding-top: {{navHeight}}px;">
+      <image class="tip-banner" src="{{banner.imageUrl}}" mode="scaleToFill" />
+
+      <view class="form-card">
+        <view class="form-row form-row--types">
+          <view class="field-label">
+            <text class="required">*</text>
+            <text class="label-text">信息类型</text>
+          </view>
+          <view class="type-grid">
+            <block wx:for="{{typeOptions}}" wx:key="value">
+              <view
+                class="type-option {{form.type === item.value ? 'is-active' : ''}}"
+                bindtap="onSelectType"
+                data-value="{{item.value}}"
+              >
+                {{item.label}}
+              </view>
+            </block>
+          </view>
+        </view>
+
+        <view class="form-divider"></view>
+
+        <view class="form-row">
+          <view class="field-label">
+            <text class="required">*</text>
+            <text class="label-text">标题</text>
+          </view>
+          <view class="field-control">
+            <input
+              class="text-input"
+              maxlength="10"
+              value="{{form.title}}"
+              placeholder="请输入标题，10个字以内"
+              placeholder-class="input-placeholder"
+              bindinput="onTitleInput"
+            />
+            <view class="field-count">{{titleCount}}/10</view>
+          </view>
+        </view>
+
+        <view class="form-divider"></view>
+
+        <view class="form-row form-row--textarea">
+          <view class="field-label">
+            <text class="required">*</text>
+            <text class="label-text">详细描述</text>
+          </view>
+          <view class="field-control field-control--textarea">
+            <textarea
+              class="textarea-input"
+              maxlength="200"
+              value="{{form.description}}"
+              placeholder="请详细描述猫咪的情况、时间经过等"
+              placeholder-class="input-placeholder"
+              bindinput="onDescriptionInput"
+            />
+            <view class="textarea-count">{{descriptionCount}}/200</view>
+          </view>
+        </view>
+
+        <view class="form-divider"></view>
+
+        <view class="form-row">
+          <view class="field-label">
+            <text class="required">*</text>
+            <text class="label-text">发生地点</text>
+          </view>
+          <view class="field-control field-control--arrow" bindtap="onTapLocation">
+            <input
+              class="text-input"
+              value="{{form.location}}"
+              placeholder="请选择或输入详细地点"
+              placeholder-class="input-placeholder"
+              bindinput="onLocationInput"
+            />
+            <image class="arrow-icon" src="{{assets.arrowRight}}" mode="aspectFit" />
+          </view>
+        </view>
+
+        <view class="form-divider"></view>
+
+        <view class="form-row">
+          <view class="field-label">
+            <text class="required">*</text>
+            <text class="label-text">联系方式</text>
+          </view>
+          <view class="field-control">
+            <input
+              class="text-input"
+              value="{{form.contact}}"
+              placeholder="请输入手机号，便于志愿者联系"
+              placeholder-class="input-placeholder"
+              type="number"
+              bindinput="onContactInput"
+            />
+          </view>
+        </view>
+
+        <view class="form-divider"></view>
+
+        <view class="upload-section">
+          <view class="upload-label-row">
+            <view class="upload-title-wrap">
+              <text class="required">*</text>
+              <text class="upload-title">上传猫咪或现场照片</text>
+            </view>
+            <view class="upload-subtitle">最多上传 3 张照片</view>
+          </view>
+
+          <view class="upload-box">
+            <view class="upload-action" bindtap="onTapUpload">
+              <image class="upload-plus" src="{{assets.plus}}" mode="aspectFit" />
+              <view class="upload-action-text">上传照片</view>
+            </view>
+
+            <block wx:for="{{uploadPhotos}}" wx:key="id">
+              <view class="upload-preview">
+                <image class="upload-thumb" src="{{item.image}}" mode="aspectFill" />
+                <view class="remove-photo" bindtap="onRemovePhoto" data-id="{{item.id}}">
+                  <image class="remove-photo-icon" src="{{assets.close}}" mode="aspectFit" />
+                </view>
+              </view>
+            </block>
+          </view>
+        </view>
+      </view>
+
+      <view class="privacy-row">
+        <image class="privacy-icon" src="{{assets.shield}}" mode="aspectFit" />
+        <view class="privacy-text">您的信息仅用于求助领养，平台将严格保密</view>
+      </view>
+
+      <button class="submit-button" bindtap="onSubmit">提交发布</button>
+    </view>
+  </scroll-view>
+</view>

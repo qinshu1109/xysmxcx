@@ -1,0 +1,56 @@
+<view class="my-comments-page">
+  <view class="custom-nav" style="height: {{navHeight}}px;">
+    <view
+      class="custom-nav__back"
+      style="top: {{navContentTop}}px; height: {{menuHeight}}px;"
+      bindtap="onTapBack"
+    >
+      <image class="custom-nav__back-icon" src="{{assets.back}}" mode="aspectFit" />
+    </view>
+    <view
+      class="custom-nav__title"
+      style="top: {{navContentTop}}px; height: {{menuHeight}}px; line-height: {{menuHeight}}px;"
+    >
+      {{title}}
+    </view>
+  </view>
+
+  <scroll-view class="comments-scroll" scroll-y enhanced="{{true}}" show-scrollbar="{{false}}">
+    <view class="comments-content" style="padding-top: {{navHeight}}px;">
+      <image class="tip-banner" src="{{assets.tipBanner}}" mode="scaleToFill" />
+
+      <view class="comment-list" wx:if="{{state === 'ready'}}">
+        <block wx:for="{{comments}}" wx:key="id">
+          <view class="comment-card">
+            <view class="comment-text">{{item.content}}</view>
+
+            <view class="target-row">
+              <view class="target-label">评论于：</view>
+              <image class="target-icon" src="{{item.targetIcon}}" mode="aspectFit" />
+              <view class="target-name">
+                <text wx:if="{{item.targetPrefix}}" class="target-prefix">{{item.targetPrefix}}</text>
+                <text>{{item.targetTitle}}</text>
+              </view>
+            </view>
+
+            <view class="card-bottom">
+              <view class="time-row">
+                <image class="time-icon" src="{{assets.time}}" mode="aspectFit" />
+                <view class="time-text">{{item.time}}</view>
+              </view>
+              <view class="detail-button" bindtap="onTapDetail" data-id="{{item.id}}">
+                <view class="detail-text">查看详情</view>
+                <image class="detail-arrow" src="{{assets.arrowRight}}" mode="aspectFit" />
+              </view>
+            </view>
+          </view>
+        </block>
+      </view>
+
+      <view class="empty-card" wx:elif="{{state === 'empty'}}">
+        <image class="empty-paw" src="{{assets.decorPaw}}" mode="aspectFit" />
+        <view class="empty-text">暂无评论记录</view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

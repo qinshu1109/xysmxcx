@@ -1,0 +1,67 @@
+<view class="auth-page login-page">
+  <image class="auth-bg" src="{{assets.loginBg}}" mode="aspectFill" />
+
+  <view class="custom-nav" style="height: {{navHeight}}px;">
+    <view
+      class="custom-nav__back"
+      style="top: {{navContentTop}}px; height: {{menuHeight}}px;"
+      bindtap="onTapBack"
+    >
+      <image class="custom-nav__back-icon" src="{{assets.back}}" mode="aspectFit" />
+    </view>
+    <view
+      class="custom-nav__title"
+      style="top: {{navContentTop}}px; height: {{menuHeight}}px; line-height: {{menuHeight}}px;"
+    >
+      {{title}}
+    </view>
+  </view>
+
+  <view class="auth-content" style="padding-top: {{navHeight}}px;">
+    <view class="auth-panel auth-panel-login">
+      <view class="mascot-wrap mascot-wrap-login">
+        <image class="mascot mascot-login" src="{{assets.loginMascot}}" mode="aspectFit" />
+      </view>
+
+      <view class="auth-card auth-card-login">
+        <view class="auth-title">{{pageText.title}}</view>
+        <view class="auth-subtitle">{{pageText.subtitle}}</view>
+
+        <view class="field-list">
+          <view class="input-row">
+            <image class="input-icon" src="{{assets.user}}" mode="aspectFit" />
+            <input
+              class="auth-input"
+              value="{{username}}"
+              placeholder="用户名"
+              placeholder-class="input-placeholder"
+              bindinput="onUsernameInput"
+            />
+          </view>
+
+          <view class="input-row">
+            <image class="input-icon" src="{{assets.lock}}" mode="aspectFit" />
+            <input
+              class="auth-input"
+              value="{{password}}"
+              password="{{!showPassword}}"
+              placeholder="密码"
+              placeholder-class="input-placeholder"
+              bindinput="onPasswordInput"
+            />
+            <view class="eye-button" bindtap="onTogglePassword">
+              <image class="eye-icon" src="{{showPassword ? assets.eyeOff : assets.eye}}" mode="aspectFit" />
+            </view>
+          </view>
+        </view>
+
+        <button class="submit-button" bindtap="onSubmit">立即登录</button>
+      </view>
+
+      <view class="auth-switch">
+        <text class="switch-text">还没有账号？</text>
+        <text class="switch-link" bindtap="onTapRegister">去注册</text>
+      </view>
+    </view>
+  </view>
+</view>

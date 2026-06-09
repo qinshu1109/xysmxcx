@@ -1,0 +1,23 @@
+{
+  "pages": [
+    "pages/home/index",
+    "pages/login/index",
+    "pages/register/index",
+    "pages/cats/index",
+    "pages/cat-detail/index",
+    "pages/help/index",
+    "pages/help-detail/index",
+    "pages/publish/index",
+    "pages/mine/index",
+    "pages/my-posts/index",
+    "pages/my-comments/index"
+  ],
+  "window": {
+    "navigationStyle": "custom",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#FFF8F4",
+    "navigationBarTextStyle": "black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

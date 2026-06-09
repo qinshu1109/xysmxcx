@@ -1,0 +1,81 @@
+<view class="cats-page">
+  <view class="custom-nav" style="height: {{navHeight}}px;">
+    <view
+      class="custom-nav__title"
+      style="top: {{navContentTop}}px; height: {{menuHeight}}px; line-height: {{menuHeight}}px;"
+    >
+      {{title}}
+    </view>
+  </view>
+
+  <scroll-view class="cats-scroll" scroll-y enhanced="{{true}}" show-scrollbar="{{false}}">
+    <view class="cats-content" style="padding-top: {{navHeight}}px;">
+      <view class="search-box">
+        <view class="search-icon-box">
+          <image class="search-icon" src="/static/cats-page/icon_search.png" mode="aspectFit" />
+        </view>
+        <input
+          class="search-input"
+          value="{{keyword}}"
+          placeholder="搜索猫咪名字 / 出没地点"
+          placeholder-class="search-placeholder"
+          confirm-type="search"
+          bindinput="onKeywordInput"
+        />
+      </view>
+
+      <view class="filter-row">
+        <block wx:for="{{filters}}" wx:key="value">
+          <view
+            class="filter-pill {{filter === item.value ? 'is-active' : ''}}"
+            bindtap="onTapFilter"
+            data-value="{{item.value}}"
+          >
+            {{item.label}}
+          </view>
+        </block>
+      </view>
+
+      <view class="state-block" wx:if="{{status === 'loading'}}">加载中</view>
+      <view class="state-block" wx:elif="{{status === 'error'}}">{{errorMessage}}</view>
+      <view class="state-block" wx:elif="{{status === 'empty'}}">暂无符合条件的猫咪</view>
+
+      <view class="cat-grid" wx:else>
+        <block wx:for="{{visibleCats}}" wx:key="id">
+          <view class="cat-card" bindtap="onTapCat" data-id="{{item.id}}">
+            <view class="cat-photo-wrap">
+              <image class="cat-photo" src="{{item.image}}" mode="aspectFill" />
+              <image class="gender-badge" src="{{item.genderIcon}}" mode="aspectFit" />
+            </view>
+            <view class="cat-info">
+              <view class="cat-name">{{item.name}}</view>
+              <view class="cat-location-row">
+                <view class="cat-location">{{item.location}}</view>
+              </view>
+              <view class="tag-row">
+                <block wx:for="{{item.tags}}" wx:key="value" wx:for-item="tag">
+                  <view class="cat-tag cat-tag--{{tag.type}}">{{tag.label}}</view>
+                </block>
+              </view>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </scroll-view>
+
+  <view class="cats-tabbar">
+    <block wx:for="{{tabs}}" wx:key="key">
+      <view
+        class="cats-tab-item {{item.active ? 'is-active' : ''}}"
+        bindtap="onTapTab"
+        data-key="{{item.key}}"
+      >
+        <view class="cats-tab-icon-box">
+          <image class="cats-tab-icon" src="{{item.icon}}" mode="aspectFit" />
+        </view>
+        <view class="cats-tab-label">{{item.text}}</view>
+      </view>
+    </block>
+  </view>
+</view>

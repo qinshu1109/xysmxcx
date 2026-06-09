@@ -1,0 +1,85 @@
+<view class="home-page">
+  <view class="custom-nav" style="height: {{navHeight}}px;">
+    <view
+      class="custom-nav__title"
+      style="top: {{navContentTop}}px; height: {{menuHeight}}px; line-height: {{menuHeight}}px;"
+    >
+      {{platformName}}
+    </view>
+  </view>
+
+  <scroll-view class="home-scroll" scroll-y enhanced="{{true}}" show-scrollbar="{{false}}">
+    <view class="home-content" style="padding-top: {{navHeight}}px;">
+      <swiper
+        class="home-swiper"
+        current="{{currentBannerIndex}}"
+        indicator-dots="{{banners.length > 1}}"
+        autoplay="{{banners.length > 1}}"
+        circular="{{banners.length > 1}}"
+        interval="4000"
+        duration="400"
+        bindchange="onBannerChange"
+      >
+        <block wx:for="{{banners}}" wx:key="id">
+          <swiper-item class="home-swiper-item" bindtap="onTapBanner" data-index="{{index}}">
+            <image class="home-swiper-image" src="{{item.imageUrl}}" mode="scaleToFill" />
+          </swiper-item>
+        </block>
+      </swiper>
+
+      <view class="home-middle-module">
+        <image
+          class="home-middle-image"
+          src="/static/home/home_middle_quick_stats_block.png"
+          mode="scaleToFill"
+        />
+        <view class="home-middle-hotspots">
+          <view class="home-middle-hotspot" bindtap="onTapQuickEntry" data-index="0"></view>
+          <view class="home-middle-hotspot" bindtap="onTapQuickEntry" data-index="1"></view>
+          <view class="home-middle-hotspot" bindtap="onTapQuickEntry" data-index="2"></view>
+        </view>
+      </view>
+
+      <view class="help-card">
+        <view class="section-head">
+          <view class="section-head__left">
+            <view class="section-head__bar"></view>
+            <view class="section-head__title">最新救助求助</view>
+          </view>
+          <view class="section-head__more" bindtap="onTapMore">查看更多 ></view>
+        </view>
+
+        <view
+          class="help-item"
+          wx:for="{{latestHelpPosts}}"
+          wx:key="id"
+          bindtap="onTapHelpPost"
+          data-id="{{item.id}}"
+        >
+          <image class="help-item__thumb" src="{{item.imageUrl}}" mode="aspectFill" />
+          <view class="help-item__body">
+            <view class="help-item__title">{{item.title}}</view>
+            <view class="help-item__desc">{{item.description}}</view>
+            <view class="help-item__date">{{item.date}}</view>
+          </view>
+          <view class="status-pill status-pill--{{item.status}}">{{item.statusText}}</view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+
+  <view class="home-tabbar">
+    <block wx:for="{{tabs}}" wx:key="key">
+      <view
+        class="home-tab-item {{item.active ? 'is-active' : ''}}"
+        bindtap="onTapTab"
+        data-key="{{item.key}}"
+      >
+        <view class="home-tab-icon-box">
+          <image class="home-tab-icon" src="{{item.icon}}" mode="aspectFit" />
+        </view>
+        <view class="home-tab-label">{{item.text}}</view>
+      </view>
+    </block>
+  </view>
+</view>

@@ -1,0 +1,356 @@
+page {
+  min-height: 100vh;
+  background: #fff8f4;
+}
+
+.detail-page {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #fffaf4 0%, #fff4f1 42%, #ffffff 100%);
+  overflow: hidden;
+}
+
+.custom-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 30;
+  background: linear-gradient(180deg, #fffaf4 0%, rgba(255, 248, 244, 0.96) 100%);
+}
+
+.custom-nav__title {
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: #111111;
+  font-size: 34rpx;
+  font-weight: 700;
+}
+
+.back-button {
+  position: absolute;
+  left: 54rpx;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56rpx;
+}
+
+.back-icon {
+  display: block;
+  width: 42rpx;
+  height: 42rpx;
+}
+
+.detail-scroll {
+  height: 100vh;
+}
+
+.detail-content {
+  width: 750rpx;
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding-left: 32rpx;
+  padding-right: 32rpx;
+  padding-bottom: calc(150rpx + env(safe-area-inset-bottom));
+}
+
+.hero-image {
+  display: block;
+  width: 686rpx;
+  height: 386rpx;
+  margin: 20rpx auto 0;
+  border-radius: 28rpx;
+  background: #f4eee9;
+  box-shadow: 0 14rpx 34rpx rgba(77, 49, 35, 0.08);
+}
+
+.profile-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 686rpx;
+  min-height: 112rpx;
+  margin: 18rpx auto 0;
+  padding: 22rpx 24rpx;
+  box-sizing: border-box;
+  border-radius: 26rpx;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 12rpx 30rpx rgba(78, 52, 40, 0.07);
+}
+
+.profile-main {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.cat-name {
+  flex: 0 0 auto;
+  color: #111111;
+  font-size: 44rpx;
+  font-weight: 800;
+  line-height: 56rpx;
+}
+
+.intro-tags {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  margin-left: 22rpx;
+  gap: 14rpx;
+}
+
+.intro-tag {
+  display: block;
+  height: 44rpx;
+  padding: 0 20rpx;
+  border-radius: 14rpx;
+  background: #ffecef;
+  color: #ff7379;
+  font-size: 24rpx;
+  font-weight: 700;
+  line-height: 44rpx;
+  white-space: nowrap;
+}
+
+.adopt-pill {
+  display: block;
+  flex: 0 0 auto;
+  height: 54rpx;
+  padding: 0 24rpx;
+  border-radius: 18rpx;
+  background: #fff2dd;
+  color: #ff7b22;
+  font-size: 26rpx;
+  font-weight: 700;
+  line-height: 54rpx;
+  white-space: nowrap;
+}
+
+.info-card {
+  width: 686rpx;
+  margin: 16rpx auto 0;
+  padding: 18rpx 26rpx;
+  box-sizing: border-box;
+  border-radius: 26rpx;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 12rpx 30rpx rgba(78, 52, 40, 0.07);
+}
+
+.info-row {
+  display: flex;
+  align-items: center;
+  min-height: 62rpx;
+  padding: 10rpx 0;
+  border-bottom: 1rpx solid #eeeeee;
+}
+
+.info-row:last-child {
+  border-bottom: 0;
+}
+
+.info-icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 42rpx;
+  width: 42rpx;
+  height: 42rpx;
+  margin-right: 22rpx;
+}
+
+.info-icon {
+  display: block;
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.info-label {
+  flex: 0 0 auto;
+  color: #111111;
+  font-size: 28rpx;
+  font-weight: 700;
+  line-height: 38rpx;
+  white-space: nowrap;
+}
+
+.info-value {
+  display: block;
+  min-width: 0;
+  color: #777777;
+  font-size: 27rpx;
+  line-height: 38rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.info-value.is-highlight {
+  color: #ff6b6f;
+  font-weight: 700;
+}
+
+.comment-card {
+  width: 686rpx;
+  margin: 16rpx auto 0;
+  padding: 26rpx 26rpx 12rpx;
+  box-sizing: border-box;
+  border-radius: 26rpx;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 12rpx 30rpx rgba(78, 52, 40, 0.07);
+}
+
+.section-head {
+  display: flex;
+  align-items: center;
+  margin-bottom: 22rpx;
+}
+
+.section-bar {
+  flex: 0 0 7rpx;
+  width: 7rpx;
+  height: 34rpx;
+  margin-right: 16rpx;
+  border-radius: 10rpx;
+  background: #ff7a75;
+}
+
+.section-title {
+  color: #111111;
+  font-size: 32rpx;
+  font-weight: 800;
+  line-height: 42rpx;
+}
+
+.comment-item {
+  display: flex;
+  align-items: flex-start;
+  min-height: 112rpx;
+  padding: 18rpx 0;
+  border-bottom: 1rpx solid #eeeeee;
+}
+
+.comment-item:last-child {
+  border-bottom: 0;
+}
+
+.comment-avatar {
+  display: block;
+  flex: 0 0 66rpx;
+  width: 66rpx;
+  height: 66rpx;
+  margin-right: 22rpx;
+  border-radius: 50%;
+  background: #fff1ee;
+}
+
+.comment-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.comment-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 0;
+}
+
+.comment-name {
+  display: block;
+  min-width: 0;
+  color: #111111;
+  font-size: 28rpx;
+  font-weight: 700;
+  line-height: 38rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.comment-time {
+  display: block;
+  flex: 0 0 auto;
+  margin-left: 18rpx;
+  color: #a5a2a0;
+  font-size: 24rpx;
+  line-height: 34rpx;
+  white-space: nowrap;
+}
+
+.comment-text {
+  display: block;
+  margin-top: 8rpx;
+  color: #777777;
+  font-size: 27rpx;
+  line-height: 38rpx;
+}
+
+.comment-input-bar {
+  position: fixed;
+  left: 32rpx;
+  right: 32rpx;
+  bottom: calc(14rpx + env(safe-area-inset-bottom));
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  height: 84rpx;
+  padding: 0 18rpx;
+  box-sizing: border-box;
+  border-radius: 26rpx;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 10rpx 28rpx rgba(78, 52, 40, 0.08);
+}
+
+.comment-face-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 56rpx;
+  width: 56rpx;
+  height: 56rpx;
+  margin-right: 16rpx;
+  border-radius: 50%;
+  background: #ff747b;
+}
+
+.comment-face {
+  display: block;
+  width: 44rpx;
+  height: 44rpx;
+}
+
+.comment-input {
+  flex: 1;
+  min-width: 0;
+  height: 58rpx;
+  padding: 0 26rpx;
+  box-sizing: border-box;
+  border-radius: 999rpx;
+  background: #f6f3f1;
+  color: #333333;
+  font-size: 26rpx;
+  line-height: 58rpx;
+}
+
+.comment-placeholder {
+  color: #aaa6a2;
+}
+
+.send-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 104rpx;
+  width: 104rpx;
+  height: 58rpx;
+  margin-left: 18rpx;
+  border-radius: 999rpx;
+  background: linear-gradient(135deg, #ff686f 0%, #ff817b 100%);
+  color: #ffffff;
+  font-size: 27rpx;
+  font-weight: 700;
+}

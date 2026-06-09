@@ -1,0 +1,68 @@
+<view class="my-posts-page">
+  <view class="custom-nav" style="height: {{navHeight}}px;">
+    <view
+      class="custom-nav__back"
+      style="top: {{navContentTop}}px; height: {{menuHeight}}px;"
+      bindtap="onTapBack"
+    >
+      <image class="custom-nav__back-icon" src="{{assets.back}}" mode="aspectFit" />
+    </view>
+    <view
+      class="custom-nav__title"
+      style="top: {{navContentTop}}px; height: {{menuHeight}}px; line-height: {{menuHeight}}px;"
+    >
+      {{title}}
+    </view>
+  </view>
+
+  <scroll-view class="my-posts-scroll" scroll-y enhanced="{{true}}" show-scrollbar="{{false}}">
+    <view class="my-posts-content" style="padding-top: {{navHeight}}px;">
+      <view class="filter-row">
+        <block wx:for="{{filters}}" wx:key="value">
+          <view
+            class="filter-pill {{currentFilter === item.value ? 'is-active' : ''}}"
+            bindtap="onTapFilter"
+            data-value="{{item.value}}"
+          >
+            {{item.label}}
+          </view>
+        </block>
+      </view>
+
+      <view class="post-list" wx:if="{{state === 'ready'}}">
+        <block wx:for="{{visiblePosts}}" wx:key="id">
+          <view class="post-card" bindtap="onTapPost" data-id="{{item.id}}">
+            <image class="post-thumb" src="{{item.image}}" mode="aspectFill" />
+            <view class="post-main">
+              <view class="post-title-row">
+                <view class="post-title">{{item.title}}</view>
+                <view class="status-pill status-pill--{{item.status}}">{{item.statusText}}</view>
+              </view>
+
+              <view class="post-meta-row">
+                <view class="type-tag type-tag--{{item.type}}">{{item.typeText}}</view>
+                <view class="meta-item">
+                  <image class="meta-icon" src="{{assets.time}}" mode="aspectFit" />
+                  <view class="meta-text">{{item.date}}</view>
+                </view>
+                <view class="meta-item meta-item--location">
+                  <image class="meta-icon" src="{{assets.location}}" mode="aspectFit" />
+                  <view class="meta-text">{{item.location}}</view>
+                </view>
+              </view>
+
+              <view class="post-description">{{item.description}}</view>
+            </view>
+          </view>
+        </block>
+      </view>
+
+      <view class="empty-card" wx:elif="{{state === 'empty'}}">
+        <image class="empty-paw" src="{{assets.decorPaw}}" mode="aspectFit" />
+        <view class="empty-text">暂无对应发布</view>
+      </view>
+
+      <image class="bottom-banner" src="{{assets.bottomBanner}}" mode="scaleToFill" />
+    </view>
+  </scroll-view>
+</view>

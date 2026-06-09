@@ -1,0 +1,108 @@
+<view class="help-page">
+  <view class="custom-nav" style="height: {{navHeight}}px;">
+    <view
+      class="custom-nav__title"
+      style="top: {{navContentTop}}px; height: {{menuHeight}}px; line-height: {{menuHeight}}px;"
+    >
+      {{title}}
+    </view>
+  </view>
+
+  <scroll-view class="help-scroll" scroll-y enhanced="{{true}}" show-scrollbar="{{false}}">
+    <view class="help-content" style="padding-top: {{navHeight}}px;">
+      <swiper class="help-swiper" indicator-dots="{{false}}" autoplay="{{false}}" circular="{{false}}">
+        <block wx:for="{{banners}}" wx:key="id">
+          <swiper-item class="help-swiper-item" bindtap="onTapBanner">
+            <image class="help-banner" src="{{item.imageUrl}}" mode="scaleToFill" />
+          </swiper-item>
+        </block>
+      </swiper>
+
+      <view class="search-box">
+        <view class="search-icon-box">
+          <image class="search-icon" src="/static/help-adoption/icon_search.png" mode="aspectFit" />
+        </view>
+        <input
+          class="search-input"
+          value="{{keyword}}"
+          placeholder="搜索标题 / 地点"
+          placeholder-class="search-placeholder"
+          confirm-type="search"
+          bindinput="onKeywordInput"
+        />
+      </view>
+
+      <view class="type-row">
+        <block wx:for="{{typeFilters}}" wx:key="value">
+          <view
+            class="type-pill {{type === item.value ? 'is-active' : ''}}"
+            bindtap="onTapType"
+            data-value="{{item.value}}"
+          >
+            {{item.label}}
+          </view>
+        </block>
+      </view>
+
+      <view class="status-row">
+        <block wx:for="{{statusFilters}}" wx:key="value">
+          <view
+            class="status-filter {{statusFilter === item.value ? 'is-active' : ''}}"
+            bindtap="onTapStatus"
+            data-value="{{item.value}}"
+          >
+            {{item.label}}
+          </view>
+        </block>
+      </view>
+
+      <view class="state-block" wx:if="{{state === 'loading'}}">加载中</view>
+      <view class="state-block" wx:elif="{{state === 'error'}}">{{errorMessage}}</view>
+      <view class="state-block" wx:elif="{{state === 'empty'}}">暂无符合条件的信息</view>
+
+      <view class="post-list" wx:else>
+        <block wx:for="{{visiblePosts}}" wx:key="id">
+          <view class="post-card" bindtap="onTapPost" data-id="{{item.id}}">
+            <image class="post-thumb" src="{{item.image}}" mode="aspectFill" />
+            <view class="post-body">
+              <view class="post-top">
+                <view class="post-title">{{item.title}}</view>
+                <view class="type-tag type-tag--{{item.type}}">{{item.typeText}}</view>
+              </view>
+              <view class="post-desc">{{item.description}}</view>
+              <view class="meta-row">
+                <view class="meta-item">
+                  <image class="meta-icon" src="/static/help-adoption/icon_location.png" mode="aspectFit" />
+                  <view class="meta-text">{{item.location}}</view>
+                </view>
+                <view class="meta-item">
+                  <image class="meta-icon" src="/static/help-adoption/icon_user.png" mode="aspectFit" />
+                  <view class="meta-text">{{item.publisher}}</view>
+                </view>
+              </view>
+              <view class="post-bottom">
+                <view class="post-date">{{item.date}}</view>
+                <view class="post-status post-status--{{item.status}}">{{item.statusText}}</view>
+              </view>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </scroll-view>
+
+  <view class="help-tabbar">
+    <block wx:for="{{tabs}}" wx:key="key">
+      <view
+        class="help-tab-item {{item.active ? 'is-active' : ''}}"
+        bindtap="onTapTab"
+        data-key="{{item.key}}"
+      >
+        <view class="help-tab-icon-box">
+          <image class="help-tab-icon" src="{{item.icon}}" mode="aspectFit" />
+        </view>
+        <view class="help-tab-label">{{item.text}}</view>
+      </view>
+    </block>
+  </view>
+</view>

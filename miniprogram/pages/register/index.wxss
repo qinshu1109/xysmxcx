@@ -1,0 +1,31 @@
+@import "../login/index.wxss";
+
+.auth-panel-register {
+  padding-top: 92rpx;
+}
+
+.mascot-wrap-register {
+  height: 218rpx;
+}
+
+.mascot-register {
+  width: 278rpx;
+  height: 226rpx;
+}
+
+.auth-card-register {
+  margin-top: -38rpx;
+  padding: 54rpx 46rpx 44rpx;
+}
+
+.auth-card-register .field-list {
+  margin-top: 38rpx;
+}
+
+.auth-card-register .input-row {
+  margin-bottom: 18rpx;
+}
+
+.auth-card-register .submit-button {
+  margin-top: 30rpx;
+}

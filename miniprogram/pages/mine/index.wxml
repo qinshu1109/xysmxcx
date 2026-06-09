@@ -1,0 +1,87 @@
+<view class="mine-page">
+  <view class="custom-nav" style="height: {{navHeight}}px;">
+    <view
+      class="custom-nav__title"
+      style="top: {{navContentTop}}px; height: {{menuHeight}}px; line-height: {{menuHeight}}px;"
+    >
+      {{title}}
+    </view>
+  </view>
+
+  <scroll-view class="mine-scroll" scroll-y enhanced="{{true}}" show-scrollbar="{{false}}">
+    <view class="mine-content" style="padding-top: {{navHeight}}px;">
+      <view class="guest-block" wx:if="{{!isLoggedIn}}">
+        <image class="guest-bg" src="{{assets.guestHeaderBg}}" mode="scaleToFill" />
+        <view class="guest-main">
+          <image class="guest-mascot" src="{{assets.guestMascot}}" mode="aspectFit" />
+          <view class="guest-title">登录后查看你的发布和评论</view>
+          <button class="login-button" bindtap="onTapLogin">立即登录</button>
+        </view>
+      </view>
+
+      <view class="profile-card" wx:else>
+        <view class="profile-avatar-box">
+          <image class="profile-avatar" src="{{user.avatar}}" mode="aspectFill" />
+        </view>
+        <image class="profile-bg" src="{{assets.profileCardBg}}" mode="scaleToFill" />
+        <view class="profile-info">
+          <view class="profile-name-row">
+            <view class="profile-name">{{user.nickname}}</view>
+            <view class="profile-role">{{user.roleText}}</view>
+          </view>
+          <view class="profile-account">账号：{{user.account}}</view>
+          <view class="profile-slogan">{{user.slogan}}</view>
+        </view>
+      </view>
+
+      <view class="stats-card" wx:if="{{isLoggedIn}}">
+        <view class="stats-item">
+          <view class="stats-title">我的发布</view>
+          <view class="stats-number">{{user.postCount}}</view>
+        </view>
+        <view class="stats-divider"></view>
+        <view class="stats-item">
+          <view class="stats-title">我的评论</view>
+          <view class="stats-number stats-number--orange">{{user.commentCount}}</view>
+        </view>
+      </view>
+
+      <view class="menu-list {{isLoggedIn ? 'menu-list--logged' : ''}}">
+        <view wx:if="{{!isLoggedIn}}">
+          <block wx:for="{{guestMenus}}" wx:key="key">
+            <view class="menu-card" bindtap="onTapMenu" data-key="{{item.key}}">
+              <image class="menu-icon" src="{{item.icon}}" mode="aspectFit" />
+              <view class="menu-title">{{item.title}}</view>
+              <image class="menu-arrow" src="{{assets.arrowRight}}" mode="aspectFit" />
+            </view>
+          </block>
+        </view>
+
+        <view wx:else>
+          <block wx:for="{{userMenus}}" wx:key="key">
+            <view class="menu-card menu-card--inset" bindtap="onTapMenu" data-key="{{item.key}}">
+              <image class="menu-icon" src="{{item.icon}}" mode="aspectFit" />
+              <view class="menu-title">{{item.title}}</view>
+              <image class="menu-arrow" src="{{assets.arrowRight}}" mode="aspectFit" />
+            </view>
+          </block>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+
+  <view class="mine-tabbar">
+    <block wx:for="{{tabs}}" wx:key="key">
+      <view
+        class="mine-tab-item {{item.active ? 'is-active' : ''}}"
+        bindtap="onTapTab"
+        data-key="{{item.key}}"
+      >
+        <view class="mine-tab-icon-box">
+          <image class="mine-tab-icon" src="{{item.icon}}" mode="aspectFit" />
+        </view>
+        <view class="mine-tab-label">{{item.text}}</view>
+      </view>
+    </block>
+  </view>
+</view>
