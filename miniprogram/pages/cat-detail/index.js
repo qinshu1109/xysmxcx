@@ -38,7 +38,7 @@ Page({
       return
     }
 
-    wx.redirectTo({
+    wx.switchTab({
       url: '/pages/cats/index'
     })
   },

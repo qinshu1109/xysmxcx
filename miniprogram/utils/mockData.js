@@ -601,8 +601,8 @@ const authPageData = {
   assets: {
     loginBg: '/static/auth/auth_login_bg.png',
     registerBg: '/static/auth/auth_register_bg.png',
-    loginMascot: '/static/auth/auth_login_mascot_cat.png',
-    registerMascot: '/static/auth/auth_register_mascot_cat.png',
+    loginMascot: '/static/auth/auth_login_mascot_cat_fitted.png',
+    registerMascot: '/static/auth/auth_register_mascot_cat_fitted.png',
     back: '/static/auth/icon_back.png',
     user: '/static/auth/icon_user.png',
     profile: '/static/auth/icon_profile_card.png',

@@ -18,6 +18,38 @@
     "navigationBarBackgroundColor": "#FFF8F4",
     "navigationBarTextStyle": "black"
   },
+  "tabBar": {
+    "color": "#8A8583",
+    "selectedColor": "#FF6B6F",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/home/index",
+        "text": "首页",
+        "iconPath": "static/icons/tabbar/icon_tab_home_inactive.png",
+        "selectedIconPath": "static/icons/tabbar/icon_tab_home_active.png"
+      },
+      {
+        "pagePath": "pages/cats/index",
+        "text": "猫咪图鉴",
+        "iconPath": "static/icons/tabbar/icon_tab_catbook_inactive.png",
+        "selectedIconPath": "static/icons/tabbar/icon_tab_catbook_active.png"
+      },
+      {
+        "pagePath": "pages/help/index",
+        "text": "求助领养",
+        "iconPath": "static/icons/tabbar/icon_tab_help_inactive.png",
+        "selectedIconPath": "static/icons/tabbar/icon_tab_help_active.png"
+      },
+      {
+        "pagePath": "pages/mine/index",
+        "text": "我的",
+        "iconPath": "static/icons/tabbar/icon_tab_mine_inactive.png",
+        "selectedIconPath": "static/icons/tabbar/icon_tab_mine_active.png"
+      }
+    ]
+  },
   "style": "v2",
   "sitemapLocation": "sitemap.json"
 }

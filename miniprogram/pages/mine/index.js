@@ -8,7 +8,6 @@ Page({
     assets: minePageData.assets,
     guestMenus: minePageData.guestMenus,
     userMenus: minePageData.userMenus,
-    tabs: minePageData.tabs,
     state: 'ready',
     errorMessage: '',
     navHeight: 88,
@@ -91,27 +90,5 @@ Page({
       title: '后续页面开发中',
       icon: 'none'
     })
-  },
-
-  onTapTab(event) {
-    const key = event.currentTarget.dataset.key
-    if (key === 'mine') {
-      return
-    }
-
-    if (key === 'home') {
-      wx.redirectTo({ url: '/pages/home/index' })
-      return
-    }
-
-    if (key === 'catbook') {
-      wx.redirectTo({ url: '/pages/cats/index' })
-      return
-    }
-
-    if (key === 'help') {
-      wx.redirectTo({ url: '/pages/help/index' })
-      return
-    }
   }
 })

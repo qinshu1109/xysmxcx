@@ -70,18 +70,4 @@
     </view>
   </scroll-view>
 
-  <view class="mine-tabbar">
-    <block wx:for="{{tabs}}" wx:key="key">
-      <view
-        class="mine-tab-item {{item.active ? 'is-active' : ''}}"
-        bindtap="onTapTab"
-        data-key="{{item.key}}"
-      >
-        <view class="mine-tab-icon-box">
-          <image class="mine-tab-icon" src="{{item.icon}}" mode="aspectFit" />
-        </view>
-        <view class="mine-tab-label">{{item.text}}</view>
-      </view>
-    </block>
-  </view>
 </view>

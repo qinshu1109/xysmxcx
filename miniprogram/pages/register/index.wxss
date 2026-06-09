@@ -1,25 +1,25 @@
 @import "../login/index.wxss";
 
 .auth-panel-register {
-  padding-top: 92rpx;
+  padding-top: 98rpx;
 }
 
 .mascot-wrap-register {
-  height: 218rpx;
+  height: 272rpx;
 }
 
 .mascot-register {
-  width: 278rpx;
-  height: 226rpx;
+  width: 360rpx;
+  height: 270rpx;
 }
 
 .auth-card-register {
-  margin-top: -38rpx;
-  padding: 54rpx 46rpx 44rpx;
+  margin-top: -58rpx;
+  padding: 70rpx 46rpx 48rpx;
 }
 
 .auth-card-register .field-list {
-  margin-top: 38rpx;
+  margin-top: 42rpx;
 }
 
 .auth-card-register .input-row {
@@ -27,5 +27,5 @@
 }
 
 .auth-card-register .submit-button {
-  margin-top: 30rpx;
+  margin-top: 34rpx;
 }

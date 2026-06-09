@@ -1,32 +1,5 @@
 const { catsPageData } = require('../../utils/mockData')
 
-const tabs = [
-  {
-    key: 'home',
-    text: '首页',
-    icon: '/static/cats-page/tab_home_default.png',
-    active: false
-  },
-  {
-    key: 'catbook',
-    text: '猫咪图鉴',
-    icon: '/static/cats-page/tab_cat_atlas_selected.png',
-    active: true
-  },
-  {
-    key: 'help',
-    text: '求助领养',
-    icon: '/static/cats-page/tab_adoption_default.png',
-    active: false
-  },
-  {
-    key: 'mine',
-    text: '我的',
-    icon: '/static/cats-page/tab_profile_default.png',
-    active: false
-  }
-]
-
 Page({
   data: {
     title: '猫咪图鉴',
@@ -39,7 +12,6 @@ Page({
     hasMore: false,
     status: 'ready',
     errorMessage: '',
-    tabs,
     navHeight: 88,
     navContentTop: 44,
     menuHeight: 32
@@ -104,39 +76,6 @@ Page({
     const id = event.currentTarget.dataset.id || 1
     wx.navigateTo({
       url: `/pages/cat-detail/index?id=${id}`
-    })
-  },
-
-  onTapTab(event) {
-    const key = event.currentTarget.dataset.key
-    if (key === 'catbook') {
-      return
-    }
-
-    if (key === 'home') {
-      wx.redirectTo({
-        url: '/pages/home/index'
-      })
-      return
-    }
-
-    if (key === 'help') {
-      wx.redirectTo({
-        url: '/pages/help/index'
-      })
-      return
-    }
-
-    if (key === 'mine') {
-      wx.redirectTo({
-        url: '/pages/mine/index'
-      })
-      return
-    }
-
-    wx.showToast({
-      title: '后续页面开发中',
-      icon: 'none'
     })
   }
 })

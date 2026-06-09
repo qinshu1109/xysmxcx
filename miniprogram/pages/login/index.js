@@ -41,7 +41,7 @@ Page({
       return
     }
 
-    wx.redirectTo({ url: '/pages/mine/index' })
+    wx.switchTab({ url: '/pages/mine/index' })
   },
 
   onUsernameInput(event) {
@@ -85,7 +85,7 @@ Page({
         return
       }
 
-      wx.redirectTo({ url: '/pages/mine/index' })
+      wx.switchTab({ url: '/pages/mine/index' })
     }, 500)
   },
 

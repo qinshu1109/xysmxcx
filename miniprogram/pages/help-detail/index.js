@@ -40,7 +40,7 @@ Page({
       return
     }
 
-    wx.redirectTo({
+    wx.switchTab({
       url: '/pages/help/index'
     })
   },

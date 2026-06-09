@@ -41,7 +41,7 @@ Page({
       return
     }
 
-    wx.redirectTo({ url: '/pages/mine/index' })
+    wx.switchTab({ url: '/pages/mine/index' })
   },
 
   onTapDetail(event) {

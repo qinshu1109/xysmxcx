@@ -68,18 +68,4 @@
     </view>
   </scroll-view>
 
-  <view class="home-tabbar">
-    <block wx:for="{{tabs}}" wx:key="key">
-      <view
-        class="home-tab-item {{item.active ? 'is-active' : ''}}"
-        bindtap="onTapTab"
-        data-key="{{item.key}}"
-      >
-        <view class="home-tab-icon-box">
-          <image class="home-tab-icon" src="{{item.icon}}" mode="aspectFit" />
-        </view>
-        <view class="home-tab-label">{{item.text}}</view>
-      </view>
-    </block>
-  </view>
 </view>

@@ -74,12 +74,12 @@ page {
 }
 
 .auth-panel-login {
-  padding-top: 112rpx;
+  padding-top: 118rpx;
 }
 
 .mascot-wrap {
   position: relative;
-  z-index: 2;
+  z-index: 1;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -87,7 +87,7 @@ page {
 }
 
 .mascot-wrap-login {
-  height: 216rpx;
+  height: 272rpx;
 }
 
 .mascot {
@@ -95,13 +95,13 @@ page {
 }
 
 .mascot-login {
-  width: 278rpx;
-  height: 226rpx;
+  width: 360rpx;
+  height: 270rpx;
 }
 
 .auth-card {
   position: relative;
-  z-index: 1;
+  z-index: 3;
   width: 100%;
   margin: 0 auto;
   box-sizing: border-box;
@@ -111,9 +111,9 @@ page {
 }
 
 .auth-card-login {
-  margin-top: -38rpx;
-  min-height: 460rpx;
-  padding: 60rpx 46rpx 50rpx;
+  margin-top: -58rpx;
+  min-height: 560rpx;
+  padding: 78rpx 46rpx 54rpx;
 }
 
 .auth-title {
@@ -136,15 +136,15 @@ page {
 
 .field-list {
   display: block;
-  margin-top: 42rpx;
+  margin-top: 48rpx;
 }
 
 .input-row {
   display: flex;
   align-items: center;
   width: 100%;
-  height: 72rpx;
-  margin: 0 auto 26rpx;
+  height: 78rpx;
+  margin: 0 auto 24rpx;
   padding: 0 22rpx;
   box-sizing: border-box;
   border: 1rpx solid #eee3de;
@@ -164,10 +164,10 @@ page {
   display: block;
   flex: 1;
   min-width: 0;
-  height: 70rpx;
+  height: 76rpx;
   color: #333333;
   font-size: 27rpx;
-  line-height: 70rpx;
+  line-height: 76rpx;
 }
 
 .input-placeholder {
@@ -195,8 +195,8 @@ page {
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 84rpx;
-  margin: 38rpx auto 0;
+  height: 88rpx;
+  margin: 42rpx auto 0;
   padding: 0;
   border: 0;
   border-radius: 999rpx;
@@ -205,7 +205,7 @@ page {
   box-shadow: 0 14rpx 30rpx rgba(255, 91, 103, 0.24);
   font-size: 31rpx;
   font-weight: 800;
-  line-height: 84rpx;
+  line-height: 88rpx;
 }
 
 .submit-button::after {
@@ -217,7 +217,7 @@ page {
   align-items: center;
   justify-content: center;
   width: 100%;
-  margin: 42rpx auto 0;
+  margin: 46rpx auto 0;
 }
 
 .switch-text,

@@ -42,7 +42,7 @@ Page({
       return
     }
 
-    wx.redirectTo({ url: '/pages/help/index' })
+    wx.switchTab({ url: '/pages/help/index' })
   },
 
   onSelectType(event) {

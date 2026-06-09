@@ -64,18 +64,4 @@
     </view>
   </scroll-view>
 
-  <view class="cats-tabbar">
-    <block wx:for="{{tabs}}" wx:key="key">
-      <view
-        class="cats-tab-item {{item.active ? 'is-active' : ''}}"
-        bindtap="onTapTab"
-        data-key="{{item.key}}"
-      >
-        <view class="cats-tab-icon-box">
-          <image class="cats-tab-icon" src="{{item.icon}}" mode="aspectFit" />
-        </view>
-        <view class="cats-tab-label">{{item.text}}</view>
-      </view>
-    </block>
-  </view>
 </view>
