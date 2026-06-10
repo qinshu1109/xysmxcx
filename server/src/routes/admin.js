@@ -5,7 +5,7 @@ const { asyncHandler } = require('../utils/asyncHandler');
 const { AppError } = require('../utils/AppError');
 const { sendSuccess } = require('../utils/response');
 const { authenticateAdmin, signAdminToken } = require('../middlewares/auth');
-const { parsePagination, paged } = require('../utils/pagination');
+const { parsePagination, paged, buildLimitOffset } = require('../utils/pagination');
 const { boolFields, boolRows } = require('../utils/rows');
 const helpPostRoutes = require('./helpPosts');
 
@@ -162,14 +162,15 @@ router.get('/cats', asyncHandler(async (req, res) => {
   }
   const where = conditions.join(' AND ');
   const totalRow = await getOne(`SELECT COUNT(*) AS total FROM cats WHERE ${where}`, params);
+  const limitOffset = buildLimitOffset(pageSize, offset);
   const rows = await query(
     `SELECT id, name, image_url AS imageUrl, gender, age, color, personality, location,
      health_status AS healthStatus, is_neutered AS isNeutered, is_adoptable AS isAdoptable,
      needs_attention AS needsAttention, remark, created_at AS createdAt, updated_at AS updatedAt
      FROM cats WHERE ${where}
      ORDER BY id ASC
-     LIMIT ? OFFSET ?`,
-    [...params, pageSize, offset]
+     ${limitOffset}`,
+    params
   );
   sendSuccess(res, paged(boolRows(rows, ['isNeutered', 'isAdoptable', 'needsAttention']), totalRow.total, page, pageSize));
 }));
@@ -209,6 +210,7 @@ router.get('/help-posts', asyncHandler(async (req, res) => {
   const { page, pageSize, offset } = parsePagination(req.query);
   const { where, params } = helpPostRoutes.buildHelpWhere(req.query);
   const totalRow = await getOne(`SELECT COUNT(*) AS total FROM help_posts hp WHERE ${where}`, params);
+  const limitOffset = buildLimitOffset(pageSize, offset);
   const rows = await query(
     `SELECT hp.id, hp.title, hp.type, hp.description, hp.location, hp.contact_phone AS contactPhone,
      hp.status, hp.created_at AS createdAt, hp.updated_at AS updatedAt,
@@ -217,8 +219,8 @@ router.get('/help-posts', asyncHandler(async (req, res) => {
      JOIN users u ON u.id = hp.user_id
      WHERE ${where}
      ORDER BY hp.created_at DESC
-     LIMIT ? OFFSET ?`,
-    [...params, pageSize, offset]
+     ${limitOffset}`,
+    params
   );
   sendSuccess(res, paged(await helpPostRoutes.attachImages(rows), totalRow.total, page, pageSize));
 }));
@@ -303,6 +305,7 @@ router.get('/comments', asyncHandler(async (req, res) => {
     `SELECT COUNT(*) AS total FROM comments c JOIN users u ON u.id = c.user_id WHERE ${where}`,
     params
   );
+  const limitOffset = buildLimitOffset(pageSize, offset);
   const rows = await query(
     `SELECT c.id, c.target_type AS targetType, c.target_id AS targetId, c.content,
      c.created_at AS createdAt, u.id AS userId, u.username, u.nickname AS userNickname,
@@ -313,8 +316,8 @@ router.get('/comments', asyncHandler(async (req, res) => {
      LEFT JOIN help_posts hp ON c.target_type = 'help_post' AND hp.id = c.target_id
      WHERE ${where}
      ORDER BY c.created_at DESC, c.id DESC
-     LIMIT ? OFFSET ?`,
-    [...params, pageSize, offset]
+     ${limitOffset}`,
+    params
   );
   sendSuccess(res, paged(rows, totalRow.total, page, pageSize));
 }));
@@ -336,12 +339,13 @@ router.get('/users', asyncHandler(async (req, res) => {
   }
   const where = conditions.join(' AND ');
   const totalRow = await getOne(`SELECT COUNT(*) AS total FROM users WHERE ${where}`, params);
+  const limitOffset = buildLimitOffset(pageSize, offset);
   const rows = await query(
     `SELECT id, username, nickname, avatar, created_at AS createdAt, updated_at AS updatedAt
      FROM users WHERE ${where}
      ORDER BY id ASC
-     LIMIT ? OFFSET ?`,
-    [...params, pageSize, offset]
+     ${limitOffset}`,
+    params
   );
   sendSuccess(res, paged(rows, totalRow.total, page, pageSize));
 }));

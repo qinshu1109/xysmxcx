@@ -4,7 +4,7 @@ const { asyncHandler } = require('../utils/asyncHandler');
 const { AppError } = require('../utils/AppError');
 const { sendSuccess } = require('../utils/response');
 const { authenticateUser } = require('../middlewares/auth');
-const { parsePagination, paged } = require('../utils/pagination');
+const { parsePagination, paged, buildLimitOffset } = require('../utils/pagination');
 const { maskPhone } = require('../utils/phone');
 const { splitImages } = require('../utils/rows');
 
@@ -94,6 +94,7 @@ router.get('/', asyncHandler(async (req, res) => {
     `SELECT COUNT(*) AS total FROM help_posts hp WHERE ${where}`,
     params
   );
+  const limitOffset = buildLimitOffset(pageSize, offset);
   const rows = await query(
     `SELECT hp.id, hp.title, hp.type, hp.description, hp.location, hp.status,
      hp.created_at AS createdAt, hp.updated_at AS updatedAt,
@@ -102,8 +103,8 @@ router.get('/', asyncHandler(async (req, res) => {
      JOIN users u ON u.id = hp.user_id
      WHERE ${where}
      ORDER BY hp.created_at DESC
-     LIMIT ? OFFSET ?`,
-    [...params, pageSize, offset]
+     ${limitOffset}`,
+    params
   );
 
   sendSuccess(res, paged(await attachImages(rows), totalRow.total, page, pageSize));

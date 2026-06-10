@@ -4,7 +4,7 @@ const { asyncHandler } = require('../utils/asyncHandler');
 const { AppError } = require('../utils/AppError');
 const { sendSuccess } = require('../utils/response');
 const { authenticateUser } = require('../middlewares/auth');
-const { parsePagination, paged } = require('../utils/pagination');
+const { parsePagination, paged, buildLimitOffset } = require('../utils/pagination');
 
 const router = express.Router();
 const TARGET_TYPES = ['cat', 'help_post'];
@@ -31,6 +31,7 @@ router.get('/', asyncHandler(async (req, res) => {
     'SELECT COUNT(*) AS total FROM comments WHERE target_type = ? AND target_id = ?',
     [targetType, targetId]
   );
+  const limitOffset = buildLimitOffset(pageSize, offset);
   const rows = await query(
     `SELECT c.id, c.target_type AS targetType, c.target_id AS targetId, c.content,
      c.created_at AS createdAt, u.id AS userId, u.nickname AS userNickname, u.avatar AS userAvatar
@@ -38,8 +39,8 @@ router.get('/', asyncHandler(async (req, res) => {
      JOIN users u ON u.id = c.user_id
      WHERE c.target_type = ? AND c.target_id = ?
      ORDER BY c.created_at DESC, c.id DESC
-     LIMIT ? OFFSET ?`,
-    [targetType, targetId, pageSize, offset]
+     ${limitOffset}`,
+    [targetType, targetId]
   );
 
   sendSuccess(res, paged(rows, totalRow.total, page, pageSize));

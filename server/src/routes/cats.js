@@ -3,7 +3,7 @@ const { query, getOne } = require('../config/db');
 const { asyncHandler } = require('../utils/asyncHandler');
 const { AppError } = require('../utils/AppError');
 const { sendSuccess } = require('../utils/response');
-const { parsePagination, paged } = require('../utils/pagination');
+const { parsePagination, paged, buildLimitOffset } = require('../utils/pagination');
 const { boolFields, boolRows } = require('../utils/rows');
 
 const router = express.Router();
@@ -35,14 +35,15 @@ router.get('/', asyncHandler(async (req, res) => {
   const { page, pageSize, offset } = parsePagination(req.query);
   const { where, params } = buildCatWhere(req.query);
   const totalRow = await getOne(`SELECT COUNT(*) AS total FROM cats WHERE ${where}`, params);
+  const limitOffset = buildLimitOffset(pageSize, offset);
   const rows = await query(
     `SELECT id, name, image_url AS imageUrl, gender, age, color, personality, location,
      health_status AS healthStatus, is_neutered AS isNeutered, is_adoptable AS isAdoptable,
      needs_attention AS needsAttention, remark, created_at AS createdAt, updated_at AS updatedAt
      FROM cats WHERE ${where}
      ORDER BY needs_attention DESC, is_adoptable DESC, id ASC
-     LIMIT ? OFFSET ?`,
-    [...params, pageSize, offset]
+     ${limitOffset}`,
+    params
   );
 
   sendSuccess(res, paged(boolRows(rows, ['isNeutered', 'isAdoptable', 'needsAttention']), totalRow.total, page, pageSize));

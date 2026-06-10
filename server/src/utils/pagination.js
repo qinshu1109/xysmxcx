@@ -13,4 +13,10 @@ function paged(items, total, page, pageSize) {
   return { items, total, page, pageSize };
 }
 
-module.exports = { parsePagination, paged };
+function buildLimitOffset(pageSize, offset) {
+  const safePageSize = Math.min(Math.max(parseInt(pageSize, 10) || 10, 1), 100);
+  const safeOffset = Math.max(parseInt(offset, 10) || 0, 0);
+  return `LIMIT ${safePageSize} OFFSET ${safeOffset}`;
+}
+
+module.exports = { parsePagination, paged, buildLimitOffset };
