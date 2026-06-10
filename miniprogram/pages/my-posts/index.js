@@ -1,14 +1,17 @@
-const { myPostsPageData } = require('../../utils/mockData')
+const { myPostsPage } = require('../../utils/pageAssets')
+const { requireLogin } = require('../../utils/auth')
+const { getMyHelpPosts } = require('../../api/me')
+const { adaptHelpPost } = require('../../utils/adapters')
 
 Page({
   data: {
     title: '我的发布',
-    assets: myPostsPageData.assets,
-    filters: myPostsPageData.filters,
+    assets: myPostsPage.assets,
+    filters: myPostsPage.filters,
     currentFilter: 'all',
-    posts: myPostsPageData.posts,
-    visiblePosts: myPostsPageData.posts,
-    state: 'ready',
+    posts: [],
+    visiblePosts: [],
+    state: 'loading',
     errorMessage: '',
     navHeight: 88,
     navContentTop: 44,
@@ -17,7 +20,9 @@ Page({
 
   onLoad() {
     this.setLayoutMetrics()
-    this.applyFilter()
+    if (requireLogin('/pages/my-posts/index')) {
+      this.loadPosts()
+    }
   },
 
   setLayoutMetrics() {
@@ -52,21 +57,39 @@ Page({
     }
 
     this.setData({ currentFilter: value })
-    this.applyFilter()
+    this.loadPosts()
   },
 
-  applyFilter() {
-    const filter = this.data.currentFilter
-    const visiblePosts = this.data.posts.filter((post) => filter === 'all' || post.status === filter)
-
-    this.setData({
-      visiblePosts,
-      state: visiblePosts.length ? 'ready' : 'empty'
+  loadPosts() {
+    this.setData({ state: 'loading', errorMessage: '' })
+    getMyHelpPosts({
+      status: this.data.currentFilter === 'all' ? '' : this.data.currentFilter,
+      page: 1,
+      pageSize: 50
     })
+      .then((data) => {
+        const posts = (data.items || []).map(adaptHelpPost)
+        this.setData({
+          posts,
+          visiblePosts: posts,
+          state: posts.length ? 'ready' : 'empty'
+        })
+      })
+      .catch((error) => {
+        this.setData({
+          posts: [],
+          visiblePosts: [],
+          state: 'error',
+          errorMessage: error && error.message ? error.message : '我的发布加载失败'
+        })
+      })
   },
 
   onTapPost(event) {
-    const id = event.currentTarget.dataset.id || 1
+    const id = event.currentTarget.dataset.id
+    if (!id) {
+      return
+    }
     wx.navigateTo({
       url: `/pages/help-detail/index?id=${id}`
     })

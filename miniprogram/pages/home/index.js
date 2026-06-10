@@ -1,10 +1,23 @@
-const { homeData } = require('../../utils/mockData')
+const { getHome } = require('../../api/home')
+const { adaptHome } = require('../../utils/adapters')
+const { requireLogin } = require('../../utils/auth')
 
 Page({
   data: {
-    ...homeData,
+    platformName: '校园拾喵驿站',
+    homeSlogan: '',
+    homeSubtitle: '',
     currentBannerIndex: 0,
     banners: [],
+    stats: {
+      catCount: 0,
+      helpPostCount: 0,
+      adoptionSuccessCount: 0
+    },
+    latestHelpPosts: [],
+    recommendedCats: [],
+    state: 'loading',
+    errorMessage: '',
     statusBarHeight: 20,
     navHeight: 88,
     navContentTop: 44,
@@ -12,10 +25,11 @@ Page({
   },
 
   onLoad() {
-    this.setData({
-      banners: homeData.banners
-    })
     this.setLayoutMetrics()
+  },
+
+  onShow() {
+    this.loadHome()
   },
 
   setLayoutMetrics() {
@@ -34,6 +48,25 @@ Page({
     })
   },
 
+  loadHome() {
+    this.setData({ state: 'loading', errorMessage: '' })
+    getHome()
+      .then((data) => {
+        const home = adaptHome(data || {})
+        this.setData({
+          ...home,
+          currentBannerIndex: 0,
+          state: 'ready'
+        })
+      })
+      .catch((error) => {
+        this.setData({
+          state: 'error',
+          errorMessage: error && error.message ? error.message : '首页数据加载失败'
+        })
+      })
+  },
+
   onBannerChange(event) {
     this.setData({
       currentBannerIndex: event.detail.current || 0
@@ -47,10 +80,15 @@ Page({
       return
     }
 
-    wx.showToast({
-      title: '轮播图点击',
-      icon: 'none'
-    })
+    if (banner.linkType === 'cat' && banner.linkTarget) {
+      wx.navigateTo({ url: `/pages/cat-detail/index?id=${banner.linkTarget}` })
+      return
+    }
+
+    if (banner.linkType === 'help_post' && banner.linkTarget) {
+      wx.navigateTo({ url: `/pages/help-detail/index?id=${banner.linkTarget}` })
+      return
+    }
   },
 
   onTapQuickEntry(event) {
@@ -58,6 +96,13 @@ Page({
       wx.switchTab({
         url: '/pages/cats/index'
       })
+      return
+    }
+
+    if (Number(event.currentTarget.dataset.index) === 2) {
+      if (requireLogin('/pages/publish/index')) {
+        wx.navigateTo({ url: '/pages/publish/index' })
+      }
       return
     }
 
@@ -73,10 +118,13 @@ Page({
     })
   },
 
-  onTapHelpPost() {
-    wx.showToast({
-      title: '后续页面开发中',
-      icon: 'none'
+  onTapHelpPost(event) {
+    const id = event.currentTarget.dataset.id
+    if (!id) {
+      return
+    }
+    wx.navigateTo({
+      url: `/pages/help-detail/index?id=${id}`
     })
   }
 })

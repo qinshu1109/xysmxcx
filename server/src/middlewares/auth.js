@@ -7,10 +7,11 @@ function getBearerToken(req) {
   return match ? match[1] : null;
 }
 
-function verifyToken(token, secret, expectedRole) {
+function verifyToken(token, secret, expectedRoles) {
   try {
     const payload = jwt.verify(token, secret);
-    if (payload.role !== expectedRole) {
+    const roles = Array.isArray(expectedRoles) ? expectedRoles : [expectedRoles];
+    if (!roles.includes(payload.role)) {
       throw new AppError('无权限', 403, 403);
     }
     return payload;
@@ -24,7 +25,7 @@ function authenticateUser(req, res, next) {
   try {
     const token = getBearerToken(req);
     if (!token) throw new AppError('未登录或 token 无效', 401, 401);
-    req.user = verifyToken(token, process.env.JWT_SECRET || 'local-user-secret', 'user');
+    req.user = verifyToken(token, process.env.JWT_SECRET || 'local-user-secret', ['user', 'admin']);
     next();
   } catch (error) {
     next(error);
@@ -48,7 +49,7 @@ function authenticateUserOrAdmin(req, res, next) {
     if (!token) throw new AppError('未登录或 token 无效', 401, 401);
 
     try {
-      req.user = verifyToken(token, process.env.JWT_SECRET || 'local-user-secret', 'user');
+      req.user = verifyToken(token, process.env.JWT_SECRET || 'local-user-secret', ['user', 'admin']);
       return next();
     } catch (userError) {
       if (userError.code !== 401 && userError.code !== 403) throw userError;
@@ -63,7 +64,7 @@ function authenticateUserOrAdmin(req, res, next) {
 
 function signUserToken(user) {
   return jwt.sign(
-    { id: user.id, username: user.username, nickname: user.nickname, role: 'user' },
+    { id: user.id, username: user.username, nickname: user.nickname, role: user.role || 'user' },
     process.env.JWT_SECRET || 'local-user-secret',
     { expiresIn: process.env.JWT_EXPIRES_IN || '7d' }
   );
@@ -71,7 +72,7 @@ function signUserToken(user) {
 
 function signAdminToken(admin) {
   return jwt.sign(
-    { id: admin.id, username: admin.username, nickname: admin.nickname, role: 'admin' },
+    { id: admin.id, username: admin.username, nickname: admin.nickname, role: 'admin', source: admin.source },
     process.env.ADMIN_JWT_SECRET || 'local-admin-secret',
     { expiresIn: process.env.ADMIN_JWT_EXPIRES_IN || '7d' }
   );

@@ -49,21 +49,27 @@
           <view class="section-head__more" bindtap="onTapMore">查看更多 ></view>
         </view>
 
-        <view
-          class="help-item"
-          wx:for="{{latestHelpPosts}}"
-          wx:key="id"
-          bindtap="onTapHelpPost"
-          data-id="{{item.id}}"
-        >
-          <image class="help-item__thumb" src="{{item.imageUrl}}" mode="aspectFill" />
-          <view class="help-item__body">
-            <view class="help-item__title">{{item.title}}</view>
-            <view class="help-item__desc">{{item.description}}</view>
-            <view class="help-item__date">{{item.date}}</view>
+        <view class="state-block" wx:if="{{state === 'loading'}}">加载中</view>
+        <view class="state-block" wx:elif="{{state === 'error'}}">{{errorMessage}}</view>
+        <view class="state-block" wx:elif="{{latestHelpPosts.length === 0}}">暂无求助信息</view>
+
+        <block wx:else>
+          <view
+            class="help-item"
+            wx:for="{{latestHelpPosts}}"
+            wx:key="id"
+            bindtap="onTapHelpPost"
+            data-id="{{item.id}}"
+          >
+            <image class="help-item__thumb" src="{{item.imageUrl}}" mode="aspectFill" />
+            <view class="help-item__body">
+              <view class="help-item__title">{{item.title}}</view>
+              <view class="help-item__desc">{{item.description}}</view>
+              <view class="help-item__date">{{item.date}}</view>
+            </view>
+            <view class="status-pill status-pill--{{item.status}}">{{item.statusText}}</view>
           </view>
-          <view class="status-pill status-pill--{{item.status}}">{{item.statusText}}</view>
-        </view>
+        </block>
       </view>
     </view>
   </scroll-view>

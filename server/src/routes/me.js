@@ -3,12 +3,30 @@ const { query, getOne } = require('../config/db');
 const { asyncHandler } = require('../utils/asyncHandler');
 const { authenticateUser } = require('../middlewares/auth');
 const { sendSuccess } = require('../utils/response');
+const { AppError } = require('../utils/AppError');
 const { parsePagination, paged, buildLimitOffset } = require('../utils/pagination');
 const helpPostRoutes = require('./helpPosts');
 
 const router = express.Router();
 
 router.use(authenticateUser);
+
+router.get('/profile', asyncHandler(async (req, res) => {
+  const user = await getOne(
+    'SELECT id, username, nickname, avatar, role FROM users WHERE id = ?',
+    [req.user.id]
+  );
+  if (!user) {
+    throw new AppError('用户不存在', 404, 404);
+  }
+  sendSuccess(res, {
+    id: user.id,
+    username: user.username,
+    nickname: user.nickname,
+    avatar: user.avatar,
+    role: user.role || 'user'
+  });
+}));
 
 router.get('/help-posts', asyncHandler(async (req, res) => {
   const { page, pageSize, offset } = parsePagination(req.query);
@@ -52,6 +70,17 @@ router.get('/comments', asyncHandler(async (req, res) => {
   );
 
   sendSuccess(res, paged(rows, totalRow.total, page, pageSize));
+}));
+
+router.delete('/comments/:id', asyncHandler(async (req, res) => {
+  const result = await query(
+    'DELETE FROM comments WHERE id = ? AND user_id = ?',
+    [req.params.id, req.user.id]
+  );
+  if (result.affectedRows === 0) {
+    throw new AppError('评论不存在或无权删除', 404, 404);
+  }
+  sendSuccess(res, { id: Number(req.params.id) }, '删除成功');
 }));
 
 module.exports = router;

@@ -1,13 +1,42 @@
-const { minePageData } = require('../../utils/mockData')
+const { minePage } = require('../../utils/pageAssets')
+const { getToken, getUser, isLoggedIn, setAuth, clearAuth, requireLogin } = require('../../utils/auth')
+const { getMyHelpPosts, getMyProfile, getMyComments } = require('../../api/me')
+const { adaptUser } = require('../../utils/adapters')
+
+const ADMIN_WEB_URL = 'http://localhost:5173'
+
+function buildDisplayUser(user, counts) {
+  const displayUser = adaptUser(user, counts)
+  const role = user && user.role === 'admin' ? 'admin' : 'user'
+  return {
+    ...displayUser,
+    role,
+    roleText: role === 'admin' ? '管理员' : '普通用户'
+  }
+}
+
+function buildUserMenus(user) {
+  const menus = [...minePage.userMenus]
+  if (user && user.role === 'admin') {
+    const logoutIndex = menus.findIndex((item) => item.key === 'logout')
+    const adminMenu = { key: 'admin', title: '管理员后台', icon: '/static/mine/icon_about.png' }
+    if (logoutIndex >= 0) {
+      menus.splice(logoutIndex, 0, adminMenu)
+    } else {
+      menus.push(adminMenu)
+    }
+  }
+  return menus
+}
 
 Page({
   data: {
     title: '我的',
     isLoggedIn: false,
-    user: minePageData.user,
-    assets: minePageData.assets,
-    guestMenus: minePageData.guestMenus,
-    userMenus: minePageData.userMenus,
+    user: minePage.user,
+    assets: minePage.assets,
+    guestMenus: minePage.guestMenus,
+    userMenus: minePage.userMenus,
     state: 'ready',
     errorMessage: '',
     navHeight: 88,
@@ -40,22 +69,75 @@ Page({
   },
 
   syncLoginState() {
-    const token = wx.getStorageSync('authToken')
+    const loggedIn = isLoggedIn()
+    if (!loggedIn) {
+      this.setData({
+        isLoggedIn: false,
+        user: minePage.user,
+        userMenus: minePage.userMenus,
+        state: 'ready',
+        errorMessage: ''
+      })
+      return
+    }
+
+    const cachedUser = getUser()
     this.setData({
-      isLoggedIn: Boolean(token)
+      isLoggedIn: true,
+      user: buildDisplayUser(cachedUser, {
+        postCount: this.data.user.postCount,
+        commentCount: this.data.user.commentCount
+      }),
+      userMenus: buildUserMenus(cachedUser),
+      state: 'loading',
+      errorMessage: ''
     })
+
+    Promise.all([
+      getMyProfile(),
+      getMyHelpPosts({ page: 1, pageSize: 1 }),
+      getMyComments({ page: 1, pageSize: 1 })
+    ])
+      .then(([profile, posts, comments]) => {
+        const latestUser = {
+          ...(cachedUser || {}),
+          ...(profile || {})
+        }
+        setAuth(getToken(), latestUser)
+        this.setData({
+          user: buildDisplayUser(latestUser, {
+            postCount: posts.total || 0,
+            commentCount: comments.total || 0
+          }),
+          userMenus: buildUserMenus(latestUser),
+          state: 'ready'
+        })
+      })
+      .catch((error) => {
+        this.setData({
+          user: buildDisplayUser(cachedUser),
+          userMenus: buildUserMenus(cachedUser),
+          state: 'error',
+          errorMessage: error && error.message ? error.message : '个人数据加载失败'
+        })
+      })
   },
 
   onTapLogin() {
-    wx.navigateTo({ url: '/pages/login/index' })
+    wx.navigateTo({ url: '/pages/login/index?redirect=%2Fpages%2Fmine%2Findex' })
   },
 
   onTapMenu(event) {
     const key = event.currentTarget.dataset.key
     if (key === 'logout') {
-      wx.removeStorageSync('authToken')
-      wx.removeStorageSync('authUser')
-      this.setData({ isLoggedIn: false })
+      clearAuth()
+      this.setData({
+        isLoggedIn: false,
+        user: minePage.user,
+        userMenus: minePage.userMenus,
+        state: 'ready',
+        errorMessage: ''
+      })
       wx.showToast({
         title: '已退出登录',
         icon: 'none'
@@ -64,7 +146,23 @@ Page({
     }
 
     if (!this.data.isLoggedIn && (key === 'posts' || key === 'comments')) {
-      wx.navigateTo({ url: '/pages/login/index' })
+      requireLogin(key === 'posts' ? '/pages/my-posts/index' : '/pages/my-comments/index')
+      return
+    }
+
+    if (key === 'admin') {
+      wx.showModal({
+        title: '管理员后台',
+        content: `请在浏览器打开后台管理系统：${ADMIN_WEB_URL}`,
+        confirmText: '复制地址',
+        success(res) {
+          if (res.confirm) {
+            wx.setClipboardData({
+              data: ADMIN_WEB_URL
+            })
+          }
+        }
+      })
       return
     }
 
@@ -85,10 +183,5 @@ Page({
       wx.navigateTo({ url: '/pages/my-comments/index' })
       return
     }
-
-    wx.showToast({
-      title: '后续页面开发中',
-      icon: 'none'
-    })
   }
 })

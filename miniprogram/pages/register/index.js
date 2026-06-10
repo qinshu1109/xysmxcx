@@ -1,10 +1,11 @@
-const { authPageData } = require('../../utils/mockData')
+const { authPage } = require('../../utils/pageAssets')
+const { register } = require('../../api/auth')
 
 Page({
   data: {
     title: '注册账号',
-    assets: authPageData.assets,
-    pageText: authPageData.register,
+    assets: authPage.assets,
+    pageText: authPage.register,
     username: '',
     nickname: '',
     password: '',
@@ -93,14 +94,28 @@ Page({
       return
     }
 
-    wx.showToast({
-      title: '注册成功',
-      icon: 'none'
+    this.setData({ state: 'loading', errorMessage: '' })
+    register({
+      username,
+      nickname,
+      password,
+      confirmPassword
     })
-
-    setTimeout(() => {
-      wx.redirectTo({ url: '/pages/login/index' })
-    }, 500)
+      .then(() => {
+        wx.showToast({
+          title: '注册成功',
+          icon: 'none'
+        })
+        setTimeout(() => {
+          wx.redirectTo({ url: '/pages/login/index' })
+        }, 300)
+      })
+      .catch((error) => {
+        this.setData({
+          state: 'ready',
+          errorMessage: error && error.message ? error.message : '注册失败'
+        })
+      })
   },
 
   onTapLogin() {

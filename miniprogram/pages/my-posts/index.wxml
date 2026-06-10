@@ -29,7 +29,17 @@
         </block>
       </view>
 
-      <view class="post-list" wx:if="{{state === 'ready'}}">
+      <view class="empty-card" wx:if="{{state === 'loading'}}">
+        <image class="empty-paw" src="{{assets.decorPaw}}" mode="aspectFit" />
+        <view class="empty-text">加载中</view>
+      </view>
+
+      <view class="empty-card" wx:elif="{{state === 'error'}}">
+        <image class="empty-paw" src="{{assets.decorPaw}}" mode="aspectFit" />
+        <view class="empty-text">{{errorMessage}}</view>
+      </view>
+
+      <view class="post-list" wx:elif="{{state === 'ready'}}">
         <block wx:for="{{visiblePosts}}" wx:key="id">
           <view class="post-card" bindtap="onTapPost" data-id="{{item.id}}">
             <image class="post-thumb" src="{{item.image}}" mode="aspectFill" />

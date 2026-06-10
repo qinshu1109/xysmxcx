@@ -18,6 +18,13 @@
         <el-table-column label="头像" width="90">
           <template #default="{ row }"><el-image class="image-cell" :src="getImageUrl(row.avatar)" fit="cover" /></template>
         </el-table-column>
+        <el-table-column label="角色" width="110">
+          <template #default="{ row }">
+            <el-tag :type="getOptionType(roleOptions, row.role)">
+              {{ getOptionLabel(roleOptions, row.role) }}
+            </el-tag>
+          </template>
+        </el-table-column>
         <el-table-column prop="createdAt" label="注册时间" min-width="160" />
         <el-table-column label="操作" width="150" fixed="right">
           <template #default="{ row }">
@@ -42,6 +49,16 @@
       <el-form ref="formRef" :model="form" :rules="rules" label-width="90px">
         <el-form-item label="昵称" prop="nickname"><el-input v-model="form.nickname" /></el-form-item>
         <el-form-item label="头像"><ImageUpload v-model="form.avatar" /></el-form-item>
+        <el-form-item label="角色" prop="role">
+          <el-select v-model="form.role" style="width: 100%">
+            <el-option
+              v-for="option in roleOptions"
+              :key="option.value"
+              :label="option.label"
+              :value="option.value"
+            />
+          </el-select>
+        </el-form-item>
       </el-form>
       <template #footer>
         <el-button @click="dialogVisible = false">取消</el-button>
@@ -59,6 +76,7 @@ import PageTableState from '../components/PageTableState.vue';
 import ImageUpload from '../components/ImageUpload.vue';
 import { deleteUser, getUsers, updateUser } from '../api/users';
 import { getImageUrl } from '../utils/image';
+import { getOptionLabel, getOptionType, roleOptions } from '../utils/enums';
 
 const loading = ref(false);
 const submitting = ref(false);
@@ -69,8 +87,11 @@ const editingId = ref(null);
 const formRef = ref();
 const filters = reactive({ keyword: '' });
 const pagination = reactive({ page: 1, pageSize: 10, total: 0 });
-const form = reactive({ nickname: '', avatar: '' });
-const rules = { nickname: [{ required: true, message: '请输入昵称', trigger: 'blur' }] };
+const form = reactive({ nickname: '', avatar: '', role: 'user' });
+const rules = {
+  nickname: [{ required: true, message: '请输入昵称', trigger: 'blur' }],
+  role: [{ required: true, message: '请选择角色', trigger: 'change' }]
+};
 
 async function loadData() {
   loading.value = true;
@@ -103,7 +124,7 @@ function handleSizeChange() {
 
 function openEdit(row) {
   editingId.value = row.id;
-  Object.assign(form, { nickname: row.nickname, avatar: row.avatar || '' });
+  Object.assign(form, { nickname: row.nickname, avatar: row.avatar || '', role: row.role || 'user' });
   dialogVisible.value = true;
 }
 

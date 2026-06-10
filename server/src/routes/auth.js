@@ -13,7 +13,8 @@ function publicUser(row) {
     id: row.id,
     username: row.username,
     nickname: row.nickname,
-    avatar: row.avatar
+    avatar: row.avatar,
+    role: row.role || 'user'
   };
 }
 
@@ -43,11 +44,11 @@ router.post('/register', asyncHandler(async (req, res) => {
   const passwordHash = await bcrypt.hash(password, 10);
   const avatar = req.body.avatar || '/static/mine/mine_default_user_avatar.png';
   const result = await query(
-    'INSERT INTO users (username, password_hash, nickname, avatar) VALUES (?, ?, ?, ?)',
-    [cleanUsername, passwordHash, cleanNickname, avatar]
+    'INSERT INTO users (username, password_hash, nickname, avatar, role) VALUES (?, ?, ?, ?, ?)',
+    [cleanUsername, passwordHash, cleanNickname, avatar, 'user']
   );
   const user = await getOne(
-    'SELECT id, username, nickname, avatar FROM users WHERE id = ?',
+    'SELECT id, username, nickname, avatar, role FROM users WHERE id = ?',
     [result.insertId]
   );
 
@@ -62,7 +63,7 @@ router.post('/login', asyncHandler(async (req, res) => {
   }
 
   const user = await getOne(
-    'SELECT id, username, password_hash, nickname, avatar FROM users WHERE username = ?',
+    'SELECT id, username, password_hash, nickname, avatar, role FROM users WHERE username = ?',
     [cleanUsername]
   );
   if (!user) {

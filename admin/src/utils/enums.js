@@ -24,8 +24,17 @@ export const targetTypeOptions = [
   { label: '求助领养', value: 'help_post' }
 ];
 
+export const roleOptions = [
+  { label: '普通用户', value: 'user', type: 'info' },
+  { label: '管理员', value: 'admin', type: 'success' }
+];
+
 export function getOptionLabel(options, value) {
   return options.find((option) => option.value === value)?.label || value || '-';
+}
+
+export function getOptionType(options, value) {
+  return options.find((option) => option.value === value)?.type || 'info';
 }
 
 export function getStatusTagType(value) {

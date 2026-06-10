@@ -1,16 +1,19 @@
-const { catsPageData } = require('../../utils/mockData')
+const { catsPage } = require('../../utils/pageAssets')
+const { getCats } = require('../../api/cats')
+const { adaptCat } = require('../../utils/adapters')
 
 Page({
   data: {
     title: '猫咪图鉴',
     keyword: '',
     filter: 'all',
-    filters: catsPageData.filters,
-    cats: catsPageData.cats,
-    visibleCats: catsPageData.cats,
+    filters: catsPage.filters,
+    cats: [],
+    visibleCats: [],
     page: 1,
+    pageSize: 20,
     hasMore: false,
-    status: 'ready',
+    status: 'loading',
     errorMessage: '',
     navHeight: 88,
     navContentTop: 44,
@@ -19,7 +22,10 @@ Page({
 
   onLoad() {
     this.setLayoutMetrics()
-    this.applyFilters()
+  },
+
+  onShow() {
+    this.loadCats()
   },
 
   setLayoutMetrics() {
@@ -39,9 +45,10 @@ Page({
 
   onKeywordInput(event) {
     this.setData({
-      keyword: event.detail.value || ''
+      keyword: event.detail.value || '',
+      page: 1
     })
-    this.applyFilters()
+    this.loadCats()
   },
 
   onTapFilter(event) {
@@ -54,26 +61,43 @@ Page({
       filter: value,
       page: 1
     })
-    this.applyFilters()
+    this.loadCats()
   },
 
-  applyFilters() {
-    const keyword = this.data.keyword.trim()
+  loadCats() {
     const filter = this.data.filter
-    const visibleCats = this.data.cats.filter((cat) => {
-      const matchedKeyword = !keyword || cat.name.indexOf(keyword) >= 0 || cat.location.indexOf(keyword) >= 0
-      const matchedFilter = filter === 'all' || cat.tags.some((tag) => tag.value === filter)
-      return matchedKeyword && matchedFilter
+    this.setData({ status: 'loading', errorMessage: '' })
+    getCats({
+      keyword: this.data.keyword.trim(),
+      filter: filter === 'all' ? '' : filter,
+      page: this.data.page,
+      pageSize: this.data.pageSize
     })
-
-    this.setData({
-      visibleCats,
-      status: visibleCats.length ? 'ready' : 'empty'
-    })
+      .then((data) => {
+        const items = (data.items || []).map(adaptCat)
+        this.setData({
+          cats: items,
+          visibleCats: items,
+          hasMore: data.page * data.pageSize < data.total,
+          status: items.length ? 'ready' : 'empty'
+        })
+      })
+      .catch((error) => {
+        this.setData({
+          cats: [],
+          visibleCats: [],
+          hasMore: false,
+          status: 'error',
+          errorMessage: error && error.message ? error.message : '猫咪列表加载失败'
+        })
+      })
   },
 
   onTapCat(event) {
-    const id = event.currentTarget.dataset.id || 1
+    const id = event.currentTarget.dataset.id
+    if (!id) {
+      return
+    }
     wx.navigateTo({
       url: `/pages/cat-detail/index?id=${id}`
     })

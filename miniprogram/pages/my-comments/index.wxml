@@ -19,7 +19,17 @@
     <view class="comments-content" style="padding-top: {{navHeight}}px;">
       <image class="tip-banner" src="{{assets.tipBanner}}" mode="scaleToFill" />
 
-      <view class="comment-list" wx:if="{{state === 'ready'}}">
+      <view class="empty-card" wx:if="{{state === 'loading'}}">
+        <image class="empty-paw" src="{{assets.decorPaw}}" mode="aspectFit" />
+        <view class="empty-text">加载中</view>
+      </view>
+
+      <view class="empty-card" wx:elif="{{state === 'error'}}">
+        <image class="empty-paw" src="{{assets.decorPaw}}" mode="aspectFit" />
+        <view class="empty-text">{{errorMessage}}</view>
+      </view>
+
+      <view class="comment-list" wx:elif="{{state === 'ready'}}">
         <block wx:for="{{comments}}" wx:key="id">
           <view class="comment-card">
             <view class="comment-text">{{item.content}}</view>
@@ -38,9 +48,14 @@
                 <image class="time-icon" src="{{assets.time}}" mode="aspectFit" />
                 <view class="time-text">{{item.time}}</view>
               </view>
-              <view class="detail-button" bindtap="onTapDetail" data-id="{{item.id}}">
-                <view class="detail-text">查看详情</view>
-                <image class="detail-arrow" src="{{assets.arrowRight}}" mode="aspectFit" />
+              <view class="action-row">
+                <view class="delete-button" bindtap="onTapDelete" data-id="{{item.id}}">
+                  <view class="delete-text">删除</view>
+                </view>
+                <view class="detail-button" bindtap="onTapDetail" data-id="{{item.id}}">
+                  <view class="detail-text">查看详情</view>
+                  <image class="detail-arrow" src="{{assets.arrowRight}}" mode="aspectFit" />
+                </view>
               </view>
             </view>
           </view>

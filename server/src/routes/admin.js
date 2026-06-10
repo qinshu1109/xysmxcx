@@ -12,6 +12,7 @@ const helpPostRoutes = require('./helpPosts');
 const router = express.Router();
 const GENDERS = ['male', 'female', 'unknown'];
 const HELP_STATUS = ['pending', 'processing', 'done'];
+const USER_ROLES = ['user', 'admin'];
 
 function numberFlag(value) {
   return value === true || value === 1 || value === '1' ? 1 : 0;
@@ -83,10 +84,21 @@ router.post('/auth/login', asyncHandler(async (req, res) => {
     throw new AppError('用户名和密码不能为空');
   }
 
-  const admin = await getOne(
+  let admin = await getOne(
     'SELECT id, username, password_hash, nickname FROM admin_users WHERE username = ?',
     [username]
   );
+  if (admin) {
+    admin.source = 'admin_user';
+  } else {
+    admin = await getOne(
+      "SELECT id, username, password_hash, nickname, role FROM users WHERE username = ? AND role = 'admin'",
+      [username]
+    );
+    if (admin) {
+      admin.source = 'user';
+    }
+  }
   if (!admin) {
     throw new AppError('用户名或密码错误');
   }
@@ -101,7 +113,9 @@ router.post('/auth/login', asyncHandler(async (req, res) => {
     admin: {
       id: admin.id,
       username: admin.username,
-      nickname: admin.nickname
+      nickname: admin.nickname,
+      role: 'admin',
+      source: admin.source
     }
   });
 }));
@@ -341,7 +355,7 @@ router.get('/users', asyncHandler(async (req, res) => {
   const totalRow = await getOne(`SELECT COUNT(*) AS total FROM users WHERE ${where}`, params);
   const limitOffset = buildLimitOffset(pageSize, offset);
   const rows = await query(
-    `SELECT id, username, nickname, avatar, created_at AS createdAt, updated_at AS updatedAt
+    `SELECT id, username, nickname, avatar, role, created_at AS createdAt, updated_at AS updatedAt
      FROM users WHERE ${where}
      ORDER BY id ASC
      ${limitOffset}`,
@@ -353,8 +367,13 @@ router.get('/users', asyncHandler(async (req, res) => {
 router.put('/users/:id', asyncHandler(async (req, res) => {
   const nickname = String(req.body.nickname || '').trim();
   const avatar = req.body.avatar || null;
+  const role = String(req.body.role || 'user').trim();
   if (!nickname) throw new AppError('昵称不能为空');
-  const result = await query('UPDATE users SET nickname = ?, avatar = ? WHERE id = ?', [nickname, avatar, req.params.id]);
+  if (!USER_ROLES.includes(role)) throw new AppError('用户角色不合法');
+  const result = await query(
+    'UPDATE users SET nickname = ?, avatar = ?, role = ? WHERE id = ?',
+    [nickname, avatar, role, req.params.id]
+  );
   if (result.affectedRows === 0) throw new AppError('用户不存在', 404, 404);
   sendSuccess(res, { id: Number(req.params.id) }, '更新成功');
 }));

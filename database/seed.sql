@@ -1,3 +1,5 @@
+SET NAMES utf8mb4;
+
 USE campus_cat_station;
 
 SET FOREIGN_KEY_CHECKS = 0;
@@ -11,9 +13,10 @@ TRUNCATE TABLE admin_users;
 TRUNCATE TABLE users;
 SET FOREIGN_KEY_CHECKS = 1;
 
-INSERT INTO users (id, username, password_hash, nickname, avatar, created_at, updated_at) VALUES
-  (1, 'cat_user01', '$2b$10$Cy8pcxNk4nriDf5/t5YcHeokgmhFF5wAKITwuuFTiu4ZbReoHXUle', '爱猫同学', '/static/mine/mine_default_user_avatar.png', '2026-06-01 09:00:00', '2026-06-01 09:00:00'),
-  (2, 'cat_user02', '$2b$10$V6peQlFIf36TVXYDKwTjOup5Y8ns5XqNvHpnROrn5axnn/2r0UOEG', '暖心志愿者', '/static/cat-detail/comment_avatar_aimaorenshi.png', '2026-06-02 10:00:00', '2026-06-02 10:00:00');
+INSERT INTO users (id, username, password_hash, nickname, avatar, role, created_at, updated_at) VALUES
+  (1, 'cat_user01', '$2b$10$Cy8pcxNk4nriDf5/t5YcHeokgmhFF5wAKITwuuFTiu4ZbReoHXUle', '爱猫同学', '/static/mine/mine_default_user_avatar.png', 'user', '2026-06-01 09:00:00', '2026-06-01 09:00:00'),
+  (2, 'cat_user02', '$2b$10$V6peQlFIf36TVXYDKwTjOup5Y8ns5XqNvHpnROrn5axnn/2r0UOEG', '暖心志愿者', '/static/cat-detail/comment_avatar_aimaorenshi.png', 'user', '2026-06-02 10:00:00', '2026-06-02 10:00:00'),
+  (3, 'cat_admin01', '$2b$10$ER19xEWNEhrCpuSINl.e/eXWiWSwB5vbtbOm8PTKgNm/ATDRx.oSC', '学生管理员', '/static/mine/mine_default_user_avatar.png', 'admin', '2026-06-02 11:00:00', '2026-06-02 11:00:00');
 
 INSERT INTO admin_users (id, username, password_hash, nickname, created_at, updated_at) VALUES
   (1, 'admin', '$2b$10$ER19xEWNEhrCpuSINl.e/eXWiWSwB5vbtbOm8PTKgNm/ATDRx.oSC', '驿站管理员', '2026-06-01 08:00:00', '2026-06-01 08:00:00');
