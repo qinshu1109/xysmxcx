@@ -1,0 +1,88 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: #1f2937;
+  background: #f4f6f8;
+  font-family: Inter, "Microsoft YaHei", "PingFang SC", Arial, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.page {
+  min-width: 0;
+}
+
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.page-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.table-panel {
+  min-height: 220px;
+}
+
+.image-cell {
+  width: 58px;
+  height: 58px;
+  border-radius: 6px;
+  object-fit: cover;
+  background: #eef2f7;
+  border: 1px solid #e5e7eb;
+}
+
+.image-path {
+  display: block;
+  max-width: 220px;
+  margin-top: 4px;
+  color: #6b7280;
+  font-size: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dialog-form {
+  max-height: 68vh;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+.form-tip {
+  margin-top: 4px;
+  color: #6b7280;
+  font-size: 12px;
+}
+
+.pagination-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 14px;
+}
+
+.danger-text {
+  color: #dc2626;
+}

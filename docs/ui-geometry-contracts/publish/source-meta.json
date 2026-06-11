@@ -1,0 +1,61 @@
+{
+  "page": "pages/publish/index",
+  "pageTitle": "发布求助领养",
+  "reference": {
+    "type": "user_provided_effect_image",
+    "relativePath": "效果图/ChatGPT Image 2026年6月8日 19_00_59 (6).png",
+    "containsPhoneFrame": true,
+    "containsStatusBar": true,
+    "containsWechatCapsule": true
+  },
+  "authoritativeAssetSource": {
+    "relativePath": "publish_help_adoption_page_assets/publish_help_adoption_assets",
+    "manifest": "publish_help_adoption_page_assets/publish_help_adoption_assets/manifest.json",
+    "readme": "publish_help_adoption_page_assets/publish_help_adoption_assets/README.md"
+  },
+  "sourceAssets": [
+    {
+      "relativePath": "publish_help_adoption_page_assets/publish_help_adoption_assets/banner/publish_tip_banner_01.png",
+      "size": [2172, 724],
+      "mode": "RGB",
+      "hasAlpha": false
+    },
+    {
+      "relativePath": "publish_help_adoption_page_assets/publish_help_adoption_assets/thumbnails/publish_upload_thumb_xiaohua.png",
+      "size": [1254, 1254],
+      "mode": "RGB",
+      "hasAlpha": false
+    },
+    {
+      "relativePath": "publish_help_adoption_page_assets/publish_help_adoption_assets/thumbnails/publish_upload_thumb_xiaobai.png",
+      "size": [1254, 1254],
+      "mode": "RGB",
+      "hasAlpha": false
+    },
+    {
+      "relativePath": "publish_help_adoption_page_assets/publish_help_adoption_assets/icons/publish_icon_sheet.png",
+      "size": [1774, 887],
+      "mode": "RGBA",
+      "hasAlpha": true
+    }
+  ],
+  "targetRuntimeAssetDir": "static/publish/",
+  "pageStructure": [
+    "custom navigation title",
+    "tip banner",
+    "form card",
+    "type selection",
+    "title input",
+    "description textarea",
+    "location input",
+    "contact input",
+    "photo upload preview",
+    "privacy note",
+    "submit button"
+  ],
+  "unverified": [
+    "未做微信开发者工具截图验证",
+    "未做真机验证",
+    "未做后端上传与发布接口联调"
+  ]
+}

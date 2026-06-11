@@ -1,0 +1,15 @@
+页面区域,源图相对路径,处理方式,运行素材相对路径,是否透明化,是否允许二次裁剪,备注
+未登录顶部背景,mine_page_assets/backgrounds/mine_guest_header_bg.png,复制不透明背景,static/mine/mine_guest_header_bg.png,否,否,未登录状态头部柔和背景
+未登录吉祥物,mine_page_assets/avatars/mine_guest_mascot_cat.png,复制透明吉祥物,static/mine/mine_guest_mascot_cat.png,是,否,未登录头像位置
+已登录资料卡背景,mine_page_assets/backgrounds/mine_profile_card_bg.png,复制资料卡背景,static/mine/mine_profile_card_bg.png,否,否,按素材包裁剪结果直接显示
+已登录用户头像,mine_page_assets/avatars/mine_default_user_avatar.png,复制不透明头像,static/mine/mine_default_user_avatar.png,否,否,已登录头像
+我的发布图标,mine_page_assets/icons/mine_icon_sheet.png,从图标 sheet 拆分,static/mine/icon_my_posts.png,是,是,菜单图标
+我的评论图标,mine_page_assets/icons/mine_icon_sheet.png,从图标 sheet 拆分,static/mine/icon_my_comments.png,是,是,菜单图标
+关于平台图标,mine_page_assets/icons/mine_icon_sheet.png,从图标 sheet 拆分,static/mine/icon_about.png,是,是,菜单图标
+退出登录图标,mine_page_assets/icons/mine_icon_sheet.png,从图标 sheet 拆分,static/mine/icon_logout.png,是,是,菜单图标
+右箭头,mine_page_assets/icons/mine_icon_sheet.png,从图标 sheet 拆分,static/mine/icon_arrow_right.png,是,是,菜单箭头
+底部首页未选中,mine_page_assets/icons/mine_icon_sheet.png,从图标 sheet 拆分,static/mine/tab_home_inactive.png,是,是,TabBar 图标
+底部猫咪图鉴未选中,mine_page_assets/icons/mine_icon_sheet.png,从图标 sheet 拆分,static/mine/tab_catbook_inactive.png,是,是,TabBar 图标
+底部求助领养未选中,mine_page_assets/icons/mine_icon_sheet.png,从图标 sheet 拆分,static/mine/tab_help_inactive.png,是,是,TabBar 图标
+底部我的选中,mine_page_assets/icons/mine_icon_sheet.png,从图标 sheet 拆分,static/mine/tab_mine_active.png,是,是,TabBar 图标
+装饰爪印,mine_page_assets/icons/mine_icon_sheet.png,从图标 sheet 拆分,static/mine/decor_paw.png,是,是,未登录顶部装饰

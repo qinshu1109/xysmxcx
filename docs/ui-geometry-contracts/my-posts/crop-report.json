@@ -1,0 +1,65 @@
+{
+  "page": "my-posts",
+  "sourceImages": [
+    {
+      "path": "mypost_page_assets/icons/mypost_icon_sheet.png",
+      "size": [1774, 887],
+      "mode": "RGBA",
+      "alpha": true
+    },
+    {
+      "path": "mypost_page_assets/banner/mypost_bottom_complete_banner.png",
+      "size": [2508, 627],
+      "mode": "RGB",
+      "alpha": false
+    },
+    {
+      "path": "mypost_page_assets/thumbnails/*.png",
+      "size": [1254, 1254],
+      "mode": "RGB",
+      "alpha": false
+    }
+  ],
+  "outputs": [
+    {
+      "file": "static/mypost/icon_back.png",
+      "source": "mypost_page_assets/icons/mypost_icon_sheet.png",
+      "cropBox": [178, 150, 334, 354],
+      "transparent": true,
+      "manualConfirmed": false,
+      "risk": "未做 DevTools 视觉截图确认"
+    },
+    {
+      "file": "static/mypost/icon_time.png",
+      "source": "mypost_page_assets/icons/mypost_icon_sheet.png",
+      "cropBox": [560, 138, 812, 370],
+      "transparent": true,
+      "manualConfirmed": false,
+      "risk": "未做 DevTools 视觉截图确认"
+    },
+    {
+      "file": "static/mypost/icon_location.png",
+      "source": "mypost_page_assets/icons/mypost_icon_sheet.png",
+      "cropBox": [968, 138, 1210, 380],
+      "transparent": true,
+      "manualConfirmed": false,
+      "risk": "未做 DevTools 视觉截图确认"
+    },
+    {
+      "file": "static/mypost/decor_paw.png",
+      "source": "mypost_page_assets/icons/mypost_icon_sheet.png",
+      "cropBox": [1340, 520, 1640, 760],
+      "transparent": true,
+      "manualConfirmed": false,
+      "risk": "仅用于空状态装饰"
+    }
+  ],
+  "copiedWithoutCrop": [
+    "static/mypost/mypost_thumb_xiaobai.png",
+    "static/mypost/mypost_thumb_juzi.png",
+    "static/mypost/mypost_thumb_xiaohua.png",
+    "static/mypost/mypost_thumb_kittens.png",
+    "static/mypost/mypost_thumb_buou.png",
+    "static/mypost/mypost_bottom_complete_banner.png"
+  ]
+}

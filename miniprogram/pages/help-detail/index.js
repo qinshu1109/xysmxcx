@@ -1,22 +1,30 @@
-const { helpDetailData } = require('../../utils/mockData')
+const { getHelpPostDetail } = require('../../api/helpPosts')
+const { getComments, createComment } = require('../../api/comments')
+const { requireLogin } = require('../../utils/auth')
+const { adaptHelpPostDetail, adaptComment } = require('../../utils/adapters')
 
 Page({
   data: {
     title: '求助详情',
-    post: helpDetailData.post,
-    contactRows: helpDetailData.contactRows,
-    progress: helpDetailData.progress,
-    comments: helpDetailData.comments,
+    id: '',
+    post: null,
+    contactRows: [],
+    progress: [],
+    comments: [],
     commentText: '',
-    status: 'ready',
+    status: 'loading',
     errorMessage: '',
     navHeight: 88,
     navContentTop: 44,
     menuHeight: 32
   },
 
-  onLoad() {
+  onLoad(options) {
     this.setLayoutMetrics()
+    this.setData({
+      id: options && options.id ? options.id : ''
+    })
+    this.loadDetail()
   },
 
   setLayoutMetrics() {
@@ -32,6 +40,36 @@ Page({
       menuHeight,
       navHeight: statusBarHeight + gap + menuHeight + gap
     })
+  },
+
+  loadDetail() {
+    const id = this.data.id
+    if (!id) {
+      this.setData({ status: 'error', errorMessage: '缺少求助领养 ID' })
+      return
+    }
+
+    this.setData({ status: 'loading', errorMessage: '' })
+    Promise.all([
+      getHelpPostDetail(id),
+      getComments({ targetType: 'help_post', targetId: id, page: 1, pageSize: 20 })
+    ])
+      .then(([postData, comments]) => {
+        const detail = adaptHelpPostDetail(postData)
+        this.setData({
+          post: detail.post,
+          contactRows: detail.contactRows,
+          progress: detail.progress,
+          comments: (comments.items || []).map(adaptComment),
+          status: 'ready'
+        })
+      })
+      .catch((error) => {
+        this.setData({
+          status: 'error',
+          errorMessage: error && error.message ? error.message : '求助详情加载失败'
+        })
+      })
   },
 
   onTapBack() {
@@ -61,26 +99,23 @@ Page({
       return
     }
 
-    const comments = [
-      {
-        id: Date.now(),
-        nickname: '我',
-        role: '志愿者',
-        avatar: '/static/help-detail/comment_avatar_guardian.png',
-        content,
-        time: '刚刚'
-      },
-      ...this.data.comments
-    ]
+    if (!requireLogin(`/pages/help-detail/index?id=${this.data.id}`)) {
+      return
+    }
 
-    this.setData({
-      comments,
-      commentText: ''
+    createComment({
+      targetType: 'help_post',
+      targetId: Number(this.data.id),
+      content
     })
-
-    wx.showToast({
-      title: '已发送',
-      icon: 'none'
-    })
+      .then(() => {
+        this.setData({ commentText: '' })
+        wx.showToast({
+          title: '已发送',
+          icon: 'none'
+        })
+        this.loadDetail()
+      })
+      .catch(() => {})
   }
 })

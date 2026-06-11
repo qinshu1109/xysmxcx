@@ -1,0 +1,127 @@
+{
+  "page": "pages/help/index",
+  "source": "help_adoption_page_assets/help_adoption_assets/",
+  "note": "本轮使用用户提供的求助领养页已处理素材包；Banner 和缩略图直接复制，图标平铺图按 README 顺序拆分为单个透明 PNG。",
+  "items": [
+    {
+      "file": "help_swiper_banner_01.png",
+      "source": "help_adoption_page_assets/help_adoption_assets/banner/help_swiper_banner_01.png",
+      "sourceSize": [1883, 685],
+      "cropBox": null,
+      "outputSize": [1883, 685],
+      "transparentized": true,
+      "manuallyConfirmed": false,
+      "risk": "完整 Banner 未拆文字；未做 DevTools 视觉复核。"
+    },
+    {
+      "file": "help_thumb_xiaobai.png",
+      "source": "help_adoption_page_assets/help_adoption_assets/thumbs/help_thumb_xiaobai.png",
+      "sourceSize": [1254, 1254],
+      "cropBox": null,
+      "outputSize": [1254, 1254],
+      "transparentized": false,
+      "manuallyConfirmed": false,
+      "risk": "素材包已预处理；未做 DevTools 视觉复核。"
+    },
+    {
+      "file": "help_thumb_xiaohua.png",
+      "source": "help_adoption_page_assets/help_adoption_assets/thumbs/help_thumb_xiaohua.png",
+      "sourceSize": [1254, 1254],
+      "cropBox": null,
+      "outputSize": [1254, 1254],
+      "transparentized": false,
+      "manuallyConfirmed": false,
+      "risk": "素材包已预处理；未做 DevTools 视觉复核。"
+    },
+    {
+      "file": "help_thumb_juzi.png",
+      "source": "help_adoption_page_assets/help_adoption_assets/thumbs/help_thumb_juzi.png",
+      "sourceSize": [1254, 1254],
+      "cropBox": null,
+      "outputSize": [1254, 1254],
+      "transparentized": false,
+      "manuallyConfirmed": false,
+      "risk": "素材包已预处理；未做 DevTools 视觉复核。"
+    },
+    {
+      "file": "icon_search.png",
+      "source": "help_adoption_page_assets/help_adoption_assets/icons/help_icon_sheet.png",
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 444, 444],
+      "outputSize": [96, 96],
+      "transparentized": true,
+      "manuallyConfirmed": false,
+      "risk": "按 4 列 × 2 行平铺顺序拆分；未做 DevTools 视觉复核。"
+    },
+    {
+      "file": "icon_user.png",
+      "source": "help_adoption_page_assets/help_adoption_assets/icons/help_icon_sheet.png",
+      "sourceSize": [1774, 887],
+      "cropBox": [444, 0, 887, 444],
+      "outputSize": [96, 96],
+      "transparentized": true,
+      "manuallyConfirmed": false,
+      "risk": "按 4 列 × 2 行平铺顺序拆分；未做 DevTools 视觉复核。"
+    },
+    {
+      "file": "icon_location.png",
+      "source": "help_adoption_page_assets/help_adoption_assets/icons/help_icon_sheet.png",
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1330, 444],
+      "outputSize": [96, 96],
+      "transparentized": true,
+      "manuallyConfirmed": false,
+      "risk": "按 4 列 × 2 行平铺顺序拆分；未做 DevTools 视觉复核。"
+    },
+    {
+      "file": "tab_home_inactive.png",
+      "source": "help_adoption_page_assets/help_adoption_assets/icons/help_icon_sheet.png",
+      "sourceSize": [1774, 887],
+      "cropBox": [1330, 0, 1774, 444],
+      "outputSize": [96, 96],
+      "transparentized": true,
+      "manuallyConfirmed": false,
+      "risk": "按 4 列 × 2 行平铺顺序拆分；未做 DevTools 视觉复核。"
+    },
+    {
+      "file": "tab_catbook_inactive.png",
+      "source": "help_adoption_page_assets/help_adoption_assets/icons/help_icon_sheet.png",
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 444, 444, 887],
+      "outputSize": [96, 96],
+      "transparentized": true,
+      "manuallyConfirmed": false,
+      "risk": "按 4 列 × 2 行平铺顺序拆分；未做 DevTools 视觉复核。"
+    },
+    {
+      "file": "tab_help_active.png",
+      "source": "help_adoption_page_assets/help_adoption_assets/icons/help_icon_sheet.png",
+      "sourceSize": [1774, 887],
+      "cropBox": [444, 444, 887, 887],
+      "outputSize": [96, 96],
+      "transparentized": true,
+      "manuallyConfirmed": false,
+      "risk": "按 4 列 × 2 行平铺顺序拆分；未做 DevTools 视觉复核。"
+    },
+    {
+      "file": "tab_mine_inactive.png",
+      "source": "help_adoption_page_assets/help_adoption_assets/icons/help_icon_sheet.png",
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 444, 1330, 887],
+      "outputSize": [96, 96],
+      "transparentized": true,
+      "manuallyConfirmed": false,
+      "risk": "按 4 列 × 2 行平铺顺序拆分；未做 DevTools 视觉复核。"
+    },
+    {
+      "file": "icon_paw_decor.png",
+      "source": "help_adoption_page_assets/help_adoption_assets/icons/help_icon_sheet.png",
+      "sourceSize": [1774, 887],
+      "cropBox": [1330, 444, 1774, 887],
+      "outputSize": [96, 96],
+      "transparentized": true,
+      "manuallyConfirmed": false,
+      "risk": "按 4 列 × 2 行平铺顺序拆分；当前页面未引用。"
+    }
+  ]
+}

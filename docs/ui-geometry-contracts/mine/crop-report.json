@@ -1,0 +1,151 @@
+{
+  "page": "pages/mine/index",
+  "targetDir": "static/mine/",
+  "sourceAssets": {
+    "guestHeaderBg": {
+      "relativePath": "mine_page_assets/backgrounds/mine_guest_header_bg.png",
+      "sourceSize": [1448, 1086]
+    },
+    "guestMascot": {
+      "relativePath": "mine_page_assets/avatars/mine_guest_mascot_cat.png",
+      "sourceSize": [1254, 1254]
+    },
+    "profileCardBg": {
+      "relativePath": "mine_page_assets/backgrounds/mine_profile_card_bg.png",
+      "sourceSize": [2124, 671]
+    },
+    "userAvatar": {
+      "relativePath": "mine_page_assets/avatars/mine_default_user_avatar.png",
+      "sourceSize": [1254, 1254]
+    },
+    "icons": {
+      "relativePath": "mine_page_assets/icons/mine_icon_sheet.png",
+      "sourceSize": [1983, 793],
+      "grid": "5 columns x 2 rows"
+    }
+  },
+  "outputs": [
+    {
+      "file": "mine_guest_header_bg.png",
+      "source": "mine_page_assets/backgrounds/mine_guest_header_bg.png",
+      "cropBox": [0, 0, 1448, 1086],
+      "outputSize": [1448, 1086],
+      "transparent": false,
+      "risk": "背景按素材包直接复制，页面中缩放显示。"
+    },
+    {
+      "file": "mine_guest_mascot_cat.png",
+      "source": "mine_page_assets/avatars/mine_guest_mascot_cat.png",
+      "cropBox": [0, 0, 1254, 1254],
+      "outputSize": [1254, 1254],
+      "transparent": true,
+      "risk": "透明吉祥物按素材包直接复制。"
+    },
+    {
+      "file": "mine_profile_card_bg.png",
+      "source": "mine_page_assets/backgrounds/mine_profile_card_bg.png",
+      "cropBox": [0, 0, 2124, 671],
+      "outputSize": [2124, 671],
+      "transparent": false,
+      "risk": "资料卡背景为 RGBA 但 alpha 全不透明。"
+    },
+    {
+      "file": "mine_default_user_avatar.png",
+      "source": "mine_page_assets/avatars/mine_default_user_avatar.png",
+      "cropBox": [0, 0, 1254, 1254],
+      "outputSize": [1254, 1254],
+      "transparent": false,
+      "risk": "用户头像按素材包直接复制。"
+    },
+    {
+      "file": "icon_my_posts.png",
+      "source": "mine_page_assets/icons/mine_icon_sheet.png",
+      "cropBox": [0, 0, 397, 396],
+      "alphaContentBox": [172, 153, 346, 331],
+      "outputSize": [96, 96],
+      "transparent": true,
+      "risk": "从透明 sheet 归一化输出。"
+    },
+    {
+      "file": "icon_my_comments.png",
+      "source": "mine_page_assets/icons/mine_icon_sheet.png",
+      "cropBox": [397, 0, 793, 396],
+      "alphaContentBox": [546, 152, 721, 330],
+      "outputSize": [96, 96],
+      "transparent": true,
+      "risk": "从透明 sheet 归一化输出。"
+    },
+    {
+      "file": "icon_about.png",
+      "source": "mine_page_assets/icons/mine_icon_sheet.png",
+      "cropBox": [793, 0, 1190, 396],
+      "alphaContentBox": [903, 152, 1080, 330],
+      "outputSize": [96, 96],
+      "transparent": true,
+      "risk": "从透明 sheet 归一化输出。"
+    },
+    {
+      "file": "icon_logout.png",
+      "source": "mine_page_assets/icons/mine_icon_sheet.png",
+      "cropBox": [1190, 0, 1586, 396],
+      "alphaContentBox": [1264, 152, 1439, 330],
+      "outputSize": [96, 96],
+      "transparent": true,
+      "risk": "从透明 sheet 归一化输出。"
+    },
+    {
+      "file": "icon_arrow_right.png",
+      "source": "mine_page_assets/icons/mine_icon_sheet.png",
+      "cropBox": [1586, 0, 1983, 396],
+      "alphaContentBox": [1710, 201, 1757, 283],
+      "outputSize": [96, 96],
+      "transparent": true,
+      "risk": "从透明 sheet 归一化输出。"
+    },
+    {
+      "file": "tab_home_inactive.png",
+      "source": "mine_page_assets/icons/mine_icon_sheet.png",
+      "cropBox": [0, 396, 397, 793],
+      "alphaContentBox": [177, 484, 328, 629],
+      "outputSize": [96, 96],
+      "transparent": true,
+      "risk": "从透明 sheet 归一化输出。"
+    },
+    {
+      "file": "tab_catbook_inactive.png",
+      "source": "mine_page_assets/icons/mine_icon_sheet.png",
+      "cropBox": [397, 396, 793, 793],
+      "alphaContentBox": [559, 483, 691, 626],
+      "outputSize": [96, 96],
+      "transparent": true,
+      "risk": "从透明 sheet 归一化输出。"
+    },
+    {
+      "file": "tab_help_inactive.png",
+      "source": "mine_page_assets/icons/mine_icon_sheet.png",
+      "cropBox": [793, 396, 1190, 793],
+      "alphaContentBox": [923, 486, 1061, 623],
+      "outputSize": [96, 96],
+      "transparent": true,
+      "risk": "从透明 sheet 归一化输出。"
+    },
+    {
+      "file": "tab_mine_active.png",
+      "source": "mine_page_assets/icons/mine_icon_sheet.png",
+      "cropBox": [1190, 396, 1586, 793],
+      "alphaContentBox": [1290, 481, 1418, 625],
+      "outputSize": [96, 96],
+      "transparent": true,
+      "risk": "从透明 sheet 归一化输出。"
+    },
+    {
+      "file": "decor_paw.png",
+      "source": "mine_page_assets/icons/mine_icon_sheet.png",
+      "cropBox": [1586, 396, 1983, 793],
+      "alphaContentBox": [1644, 475, 1818, 634],
+      "outputSize": [128, 128],
+      "transparent": true,
+      "risk": "从透明 sheet 归一化输出。"
+    }
+  ]
+}

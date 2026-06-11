@@ -1,0 +1,41 @@
+{
+  "page": "pages/cat-detail/index",
+  "pageName": "猫咪详情",
+  "sourceRole": "效果图 + 页面专属完整素材包",
+  "referenceImage": {
+    "path": "效果图/ChatGPT Image 2026年6月8日 19_00_57 (3).png",
+    "width": 941,
+    "height": 1672,
+    "containsPhoneFrame": true,
+    "containsStatusBar": true,
+    "containsWechatCapsule": true
+  },
+  "assetPackage": {
+    "path": "cat_detail_full_assets_pack/",
+    "manifestPath": "cat_detail_full_assets_pack/manifest.json",
+    "includes": [
+      "详情页顶部白猫主图",
+      "三张评论头像",
+      "详情页透明图标"
+    ]
+  },
+  "target": {
+    "miniprogramRootRole": "微信开发者工具工程的 miniprogramRoot",
+    "pagePath": "pages/cat-detail/index",
+    "assetPath": "static/cat-detail/"
+  },
+  "pageStructure": [
+    "自定义顶部标题和返回按钮",
+    "猫咪大图",
+    "姓名与基础标签卡",
+    "详情信息卡",
+    "评论卡",
+    "底部评论输入栏"
+  ],
+  "processingTime": "current task run",
+  "unverified": [
+    "未做微信开发者工具截图验证",
+    "未做真机验证",
+    "未做后端 GET /cats/:id 和 GET /comments 联调"
+  ]
+}

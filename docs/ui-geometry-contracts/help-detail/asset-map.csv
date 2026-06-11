@@ -1,0 +1,14 @@
+页面区域,源图相对路径,处理方式,运行素材相对路径,是否透明化,是否允许二次裁剪,备注
+顶部主图,help_detail_page_assets/help_detail_assets/photos/help_detail_hero_photo.png,复制不透明主图,static/help-detail/help_detail_hero_photo.png,否,否,页面使用 aspectFill 和 WXSS 圆角
+摘要猫咪图标,help_detail_page_assets/help_detail_assets/icons/help_detail_icon_sheet.png,从图标 sheet 拆分,static/help-detail/icon_cat_badge.png,是,是,只保留透明 PNG 图标
+返回图标,help_detail_page_assets/help_detail_assets/icons/help_detail_icon_sheet.png,从图标 sheet 拆分,static/help-detail/icon_back_arrow.png,是,是,用于自定义导航返回
+地点图标,help_detail_page_assets/help_detail_assets/icons/help_detail_icon_sheet.png,从图标 sheet 拆分,static/help-detail/icon_location.png,是,是,用于联系信息
+电话图标,help_detail_page_assets/help_detail_assets/icons/help_detail_icon_sheet.png,从图标 sheet 拆分,static/help-detail/icon_phone.png,是,是,用于联系信息
+用户图标,help_detail_page_assets/help_detail_assets/icons/help_detail_icon_sheet.png,从图标 sheet 拆分,static/help-detail/icon_user.png,是,是,用于联系信息
+评论输入图标,help_detail_page_assets/help_detail_assets/icons/help_detail_icon_sheet.png,从图标 sheet 拆分,static/help-detail/icon_smile.png,是,是,用于底部输入栏
+进度已提交圆点,help_detail_page_assets/help_detail_assets/icons/help_detail_icon_sheet.png,从图标 sheet 拆分,static/help-detail/progress_step_active.png,是,是,用于进度卡
+进度未完成圆点,help_detail_page_assets/help_detail_assets/icons/help_detail_icon_sheet.png,从图标 sheet 拆分,static/help-detail/progress_step_inactive.png,是,是,用于进度卡
+进度虚线,help_detail_page_assets/help_detail_assets/progress/help_detail_progress_line_asset.png,复制透明进度线,static/help-detail/help_detail_progress_line_asset.png,是,否,由 WXSS 控制显示尺寸
+留言头像 1,help_detail_page_assets/help_detail_assets/avatars/help_detail_comment_avatar_sheet.png,从头像 sheet 拆分,static/help-detail/comment_avatar_guardian.png,是,是,圆形头像外透明
+留言头像 2,help_detail_page_assets/help_detail_assets/avatars/help_detail_comment_avatar_sheet.png,从头像 sheet 拆分,static/help-detail/comment_avatar_aixin.png,是,是,圆形头像外透明
+留言头像 3,help_detail_page_assets/help_detail_assets/avatars/help_detail_comment_avatar_sheet.png,从头像 sheet 拆分,static/help-detail/comment_avatar_warm.png,是,是,圆形头像外透明

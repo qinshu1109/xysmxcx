@@ -1,13 +1,23 @@
-const { authPageData } = require('../../utils/mockData')
+const { authPage } = require('../../utils/pageAssets')
+const { setAuth } = require('../../utils/auth')
+const { login } = require('../../api/auth')
+
+const tabPages = [
+  '/pages/home/index',
+  '/pages/cats/index',
+  '/pages/help/index',
+  '/pages/mine/index'
+]
 
 Page({
   data: {
     title: '登录',
-    assets: authPageData.assets,
-    pageText: authPageData.login,
+    assets: authPage.assets,
+    pageText: authPage.login,
     username: '',
     password: '',
     showPassword: false,
+    redirect: '',
     state: 'ready',
     errorMessage: '',
     navHeight: 88,
@@ -15,7 +25,10 @@ Page({
     menuHeight: 32
   },
 
-  onLoad() {
+  onLoad(options) {
+    this.setData({
+      redirect: options && options.redirect ? decodeURIComponent(options.redirect) : ''
+    })
     this.setLayoutMetrics()
   },
 
@@ -68,25 +81,38 @@ Page({
       return
     }
 
-    wx.setStorageSync('authToken', 'mock-auth-token')
-    wx.setStorageSync('authUser', {
-      username,
-      nickname: username
-    })
-    wx.showToast({
-      title: '登录成功',
-      icon: 'none'
-    })
+    this.setData({ state: 'loading', errorMessage: '' })
+    login({ username, password })
+      .then((data) => {
+        setAuth(data.token, data.user)
+        wx.showToast({
+          title: '登录成功',
+          icon: 'none'
+        })
+        setTimeout(() => {
+          this.goAfterLogin()
+        }, 300)
+      })
+      .catch((error) => {
+        this.setData({
+          state: 'ready',
+          errorMessage: error && error.message ? error.message : '登录失败'
+        })
+      })
+  },
 
-    setTimeout(() => {
-      const pages = getCurrentPages()
-      if (pages.length > 1) {
-        wx.navigateBack()
-        return
-      }
+  goAfterLogin() {
+    const redirect = this.data.redirect || '/pages/home/index'
+    const path = redirect.split('?')[0]
 
-      wx.switchTab({ url: '/pages/mine/index' })
-    }, 500)
+    if (tabPages.indexOf(path) >= 0) {
+      wx.switchTab({ url: path })
+      return
+    }
+
+    wx.redirectTo({
+      url: redirect
+    })
   },
 
   onTapRegister() {

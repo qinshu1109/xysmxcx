@@ -1,0 +1,11 @@
+页面区域,源素材,运行素材,素材用途,是否透明化,是否裁剪或拆分,备注
+小白发布卡片,mypost_page_assets/thumbnails/mypost_thumb_xiaobai.png,static/mypost/mypost_thumb_xiaobai.png,列表缩略图,否,否,保持不透明照片
+橘子发布卡片,mypost_page_assets/thumbnails/mypost_thumb_juzi.png,static/mypost/mypost_thumb_juzi.png,列表缩略图,否,否,保持不透明照片
+小花发布卡片,mypost_page_assets/thumbnails/mypost_thumb_xiaohua.png,static/mypost/mypost_thumb_xiaohua.png,列表缩略图,否,否,保持不透明照片
+小奶猫发布卡片,mypost_page_assets/thumbnails/mypost_thumb_kittens.png,static/mypost/mypost_thumb_kittens.png,列表缩略图,否,否,保持不透明照片
+布偶猫发布卡片,mypost_page_assets/thumbnails/mypost_thumb_buou.png,static/mypost/mypost_thumb_buou.png,列表缩略图,否,否,保持不透明照片
+底部鼓励横幅,mypost_page_assets/banner/mypost_bottom_complete_banner.png,static/mypost/mypost_bottom_complete_banner.png,底部完整横幅,否,否,保留完整视觉
+返回图标,mypost_page_assets/icons/mypost_icon_sheet.png,static/mypost/icon_back.png,自定义导航返回,是,是,从透明图标表拆分
+时间图标,mypost_page_assets/icons/mypost_icon_sheet.png,static/mypost/icon_time.png,日期元信息图标,是,是,从透明图标表拆分
+定位图标,mypost_page_assets/icons/mypost_icon_sheet.png,static/mypost/icon_location.png,地点元信息图标,是,是,从透明图标表拆分
+空状态爪印,mypost_page_assets/icons/mypost_icon_sheet.png,static/mypost/decor_paw.png,空状态装饰,是,是,从透明图标表拆分

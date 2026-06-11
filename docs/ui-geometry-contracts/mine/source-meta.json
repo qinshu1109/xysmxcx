@@ -1,0 +1,62 @@
+{
+  "page": "pages/mine/index",
+  "pageTitle": "我的",
+  "reference": {
+    "type": "user_provided_effect_image",
+    "relativePath": "效果图/ChatGPT Image 2026年6月8日 19_00_59 (7).png",
+    "containsPhoneFrame": true,
+    "containsStatusBar": true,
+    "containsWechatCapsule": true,
+    "states": ["guest", "logged_in"]
+  },
+  "authoritativeAssetSource": {
+    "relativePath": "mine_page_assets",
+    "manifest": "mine_page_assets/manifest.json",
+    "readme": "mine_page_assets/README.md"
+  },
+  "sourceAssets": [
+    {
+      "relativePath": "mine_page_assets/backgrounds/mine_guest_header_bg.png",
+      "size": [1448, 1086],
+      "mode": "RGB",
+      "hasAlpha": false
+    },
+    {
+      "relativePath": "mine_page_assets/avatars/mine_guest_mascot_cat.png",
+      "size": [1254, 1254],
+      "mode": "RGBA",
+      "hasAlpha": true
+    },
+    {
+      "relativePath": "mine_page_assets/backgrounds/mine_profile_card_bg.png",
+      "size": [2124, 671],
+      "mode": "RGBA",
+      "hasAlpha": true
+    },
+    {
+      "relativePath": "mine_page_assets/avatars/mine_default_user_avatar.png",
+      "size": [1254, 1254],
+      "mode": "RGB",
+      "hasAlpha": false
+    },
+    {
+      "relativePath": "mine_page_assets/icons/mine_icon_sheet.png",
+      "size": [1983, 793],
+      "mode": "RGBA",
+      "hasAlpha": true
+    }
+  ],
+  "targetRuntimeAssetDir": "static/mine/",
+  "pageStructure": [
+    "custom navigation title",
+    "guest header or logged profile card",
+    "logged stats card",
+    "menu list",
+    "custom bottom tabbar"
+  ],
+  "unverified": [
+    "未做微信开发者工具截图验证",
+    "未做真机验证",
+    "未做真实登录接口联调"
+  ]
+}

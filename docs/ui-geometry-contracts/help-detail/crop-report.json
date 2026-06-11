@@ -1,0 +1,167 @@
+{
+  "page": "pages/help-detail/index",
+  "targetDir": "static/help-detail/",
+  "sourceAssets": {
+    "hero": {
+      "relativePath": "help_detail_page_assets/help_detail_assets/photos/help_detail_hero_photo.png",
+      "sourceSize": [1672, 941]
+    },
+    "icons": {
+      "relativePath": "help_detail_page_assets/help_detail_assets/icons/help_detail_icon_sheet.png",
+      "sourceSize": [1774, 887],
+      "grid": "4 columns x 2 rows"
+    },
+    "avatars": {
+      "relativePath": "help_detail_page_assets/help_detail_assets/avatars/help_detail_comment_avatar_sheet.png",
+      "sourceSize": [2172, 724],
+      "grid": "3 columns x 1 row"
+    },
+    "progressLine": {
+      "relativePath": "help_detail_page_assets/help_detail_assets/progress/help_detail_progress_line_asset.png",
+      "sourceSize": [1828, 72]
+    }
+  },
+  "outputs": [
+    {
+      "file": "help_detail_hero_photo.png",
+      "source": "help_detail_page_assets/help_detail_assets/photos/help_detail_hero_photo.png",
+      "sourceSize": [1672, 941],
+      "cropBox": [0, 0, 1672, 941],
+      "outputSize": [1672, 941],
+      "transparent": false,
+      "manualConfirmed": false,
+      "risk": "主图未裁剪，页面容器使用 aspectFill，仍需 DevTools 确认主体裁切效果。"
+    },
+    {
+      "file": "icon_back_arrow.png",
+      "source": "help_detail_page_assets/help_detail_assets/icons/help_detail_icon_sheet.png",
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 444, 444],
+      "alphaContentBox": [219, 175, 301, 321],
+      "outputSize": [96, 96],
+      "transparent": true,
+      "manualConfirmed": false,
+      "risk": "从透明 sheet 归一化输出，需 DevTools 复核视觉尺寸。"
+    },
+    {
+      "file": "icon_cat_badge.png",
+      "source": "help_detail_page_assets/help_detail_assets/icons/help_detail_icon_sheet.png",
+      "sourceSize": [1774, 887],
+      "cropBox": [444, 0, 887, 444],
+      "alphaContentBox": [555, 143, 786, 364],
+      "outputSize": [96, 96],
+      "transparent": true,
+      "manualConfirmed": false,
+      "risk": "从透明 sheet 归一化输出，需 DevTools 复核视觉尺寸。"
+    },
+    {
+      "file": "icon_location.png",
+      "source": "help_detail_page_assets/help_detail_assets/icons/help_detail_icon_sheet.png",
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1330, 444],
+      "alphaContentBox": [1009, 143, 1159, 362],
+      "outputSize": [96, 96],
+      "transparent": true,
+      "manualConfirmed": false,
+      "risk": "从透明 sheet 归一化输出，需 DevTools 复核视觉尺寸。"
+    },
+    {
+      "file": "icon_phone.png",
+      "source": "help_detail_page_assets/help_detail_assets/icons/help_detail_icon_sheet.png",
+      "sourceSize": [1774, 887],
+      "cropBox": [1330, 0, 1774, 444],
+      "alphaContentBox": [1388, 171, 1559, 340],
+      "outputSize": [96, 96],
+      "transparent": true,
+      "manualConfirmed": false,
+      "risk": "从透明 sheet 归一化输出，需 DevTools 复核视觉尺寸。"
+    },
+    {
+      "file": "icon_user.png",
+      "source": "help_detail_page_assets/help_detail_assets/icons/help_detail_icon_sheet.png",
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 444, 444, 887],
+      "alphaContentBox": [204, 569, 360, 738],
+      "outputSize": [96, 96],
+      "transparent": true,
+      "manualConfirmed": false,
+      "risk": "从透明 sheet 归一化输出，需 DevTools 复核视觉尺寸。"
+    },
+    {
+      "file": "icon_smile.png",
+      "source": "help_detail_page_assets/help_detail_assets/icons/help_detail_icon_sheet.png",
+      "sourceSize": [1774, 887],
+      "cropBox": [444, 444, 887, 887],
+      "alphaContentBox": [582, 566, 762, 743],
+      "outputSize": [96, 96],
+      "transparent": true,
+      "manualConfirmed": false,
+      "risk": "从透明 sheet 归一化输出，需 DevTools 复核视觉尺寸。"
+    },
+    {
+      "file": "progress_step_active.png",
+      "source": "help_detail_page_assets/help_detail_assets/icons/help_detail_icon_sheet.png",
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 444, 1330, 887],
+      "alphaContentBox": [992, 565, 1176, 745],
+      "outputSize": [128, 128],
+      "transparent": true,
+      "manualConfirmed": false,
+      "risk": "从透明 sheet 归一化输出，需 DevTools 复核与虚线对齐。"
+    },
+    {
+      "file": "progress_step_inactive.png",
+      "source": "help_detail_page_assets/help_detail_assets/icons/help_detail_icon_sheet.png",
+      "sourceSize": [1774, 887],
+      "cropBox": [1330, 444, 1774, 887],
+      "alphaContentBox": [1388, 566, 1567, 743],
+      "outputSize": [128, 128],
+      "transparent": true,
+      "manualConfirmed": false,
+      "risk": "从透明 sheet 归一化输出，需 DevTools 复核与虚线对齐。"
+    },
+    {
+      "file": "help_detail_progress_line_asset.png",
+      "source": "help_detail_page_assets/help_detail_assets/progress/help_detail_progress_line_asset.png",
+      "sourceSize": [1828, 72],
+      "cropBox": [0, 0, 1828, 72],
+      "outputSize": [1828, 72],
+      "transparent": true,
+      "manualConfirmed": false,
+      "risk": "透明进度线未重绘，页面中被缩放显示。"
+    },
+    {
+      "file": "comment_avatar_guardian.png",
+      "source": "help_detail_page_assets/help_detail_assets/avatars/help_detail_comment_avatar_sheet.png",
+      "sourceSize": [2172, 724],
+      "cropBox": [0, 0, 724, 724],
+      "alphaContentBox": [149, 61, 709, 620],
+      "outputSize": [512, 512],
+      "transparent": true,
+      "manualConfirmed": false,
+      "risk": "头像从透明 sheet 归一化输出。"
+    },
+    {
+      "file": "comment_avatar_aixin.png",
+      "source": "help_detail_page_assets/help_detail_assets/avatars/help_detail_comment_avatar_sheet.png",
+      "sourceSize": [2172, 724],
+      "cropBox": [724, 0, 1448, 724],
+      "alphaContentBox": [806, 64, 1366, 623],
+      "outputSize": [512, 512],
+      "transparent": true,
+      "manualConfirmed": false,
+      "risk": "头像从透明 sheet 归一化输出。"
+    },
+    {
+      "file": "comment_avatar_warm.png",
+      "source": "help_detail_page_assets/help_detail_assets/avatars/help_detail_comment_avatar_sheet.png",
+      "sourceSize": [2172, 724],
+      "cropBox": [1448, 0, 2172, 724],
+      "alphaContentBox": [1470, 60, 2031, 620],
+      "outputSize": [512, 512],
+      "transparent": true,
+      "manualConfirmed": false,
+      "risk": "头像从透明 sheet 归一化输出。"
+    }
+  ]
+}

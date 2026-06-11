@@ -212,3 +212,16 @@ page {
   color: #2f91ff;
   background: #e7f1ff;
 }
+
+.status-pill--done {
+  color: #3ba66b;
+  background: #e4f7ed;
+}
+
+.state-block {
+  padding: 34rpx 0;
+  color: #9c9a9a;
+  font-size: 25rpx;
+  line-height: 36rpx;
+  text-align: center;
+}

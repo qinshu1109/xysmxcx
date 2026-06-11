@@ -1,0 +1,27 @@
+{
+  "page": "my-comments",
+  "title": "我的评论",
+  "route": "pages/my-comments/index",
+  "reference": {
+    "source": "用户本轮提供的我的评论效果图",
+    "containsPhoneFrame": true,
+    "containsWechatSystemUi": true
+  },
+  "assetSource": {
+    "directory": "mycomments_page_assets/",
+    "manifest": "mycomments_page_assets/manifest.json",
+    "readme": "mycomments_page_assets/README.md"
+  },
+  "runtimeAssetDir": "static/mycomments/",
+  "implementation": {
+    "type": "dynamic-wxml-wxss-with-page-assets",
+    "wholePageImage": false,
+    "mockOnly": true,
+    "futureApi": "GET /me/comments"
+  },
+  "unverified": [
+    "未执行微信开发者工具截图对照",
+    "未执行真机验证",
+    "未接入真实后端接口"
+  ]
+}

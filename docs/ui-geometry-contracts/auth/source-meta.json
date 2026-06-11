@@ -1,0 +1,81 @@
+{
+  "pageGroup": "auth-login-register",
+  "routes": [
+    "pages/login/index",
+    "pages/register/index"
+  ],
+  "reference": {
+    "source": "用户本轮提供的登录 / 注册账号效果图",
+    "containsPhoneFrame": true,
+    "containsWechatSystemUi": true
+  },
+  "assetSource": {
+    "directory": "auth_login_register_page_assets/auth_page_assets/",
+    "manifest": "auth_login_register_page_assets/auth_page_assets/manifest.json",
+    "readme": "auth_login_register_page_assets/auth_page_assets/README.md"
+  },
+  "runtimeAssetDir": "static/auth/",
+  "implementation": {
+    "type": "dynamic-wxml-wxss-with-page-assets",
+    "wholePageImage": false,
+    "mockOnly": true,
+    "layoutFix": "背景层、内容层、吉祥物与表单卡片组合层",
+    "futureApis": [
+      "POST /auth/login",
+      "POST /auth/register"
+    ]
+  },
+  "assetInspection": {
+    "loginBackground": {
+      "path": "static/auth/auth_login_bg.png",
+      "size": [941, 1672],
+      "alpha": false,
+      "containsFormUi": false
+    },
+    "registerBackground": {
+      "path": "static/auth/auth_register_bg.png",
+      "size": [941, 1672],
+      "alpha": false,
+      "containsFormUi": false
+    },
+    "loginMascot": {
+      "path": "static/auth/auth_login_mascot_cat.png",
+      "size": [1254, 1254],
+      "alpha": true,
+      "visibleBox": [103, 222, 1106, 1030],
+      "visibleBoxRatio": 0.5154,
+      "issue": "透明画布过大，直接 aspectFit 会导致可见吉祥物偏小",
+      "hasObviousRectangleBackground": false
+    },
+    "registerMascot": {
+      "path": "static/auth/auth_register_mascot_cat.png",
+      "size": [1254, 1254],
+      "alpha": true,
+      "visibleBox": [155, 191, 1130, 1038],
+      "visibleBoxRatio": 0.5252,
+      "issue": "透明画布过大，直接 aspectFit 会导致可见吉祥物偏小",
+      "hasObviousRectangleBackground": false
+    },
+    "loginMascotFitted": {
+      "path": "static/auth/auth_login_mascot_cat_fitted.png",
+      "size": [960, 720],
+      "alpha": true,
+      "visibleBox": [55, 32, 904, 716],
+      "visibleBoxRatio": 0.8402,
+      "purpose": "运行用紧画布透明 PNG"
+    },
+    "registerMascotFitted": {
+      "path": "static/auth/auth_register_mascot_cat_fitted.png",
+      "size": [960, 720],
+      "alpha": true,
+      "visibleBox": [86, 32, 873, 716],
+      "visibleBoxRatio": 0.7788,
+      "purpose": "运行用紧画布透明 PNG"
+    }
+  },
+  "unverified": [
+    "未执行微信开发者工具截图对照",
+    "未执行真机验证",
+    "未接入真实后端接口"
+  ]
+}

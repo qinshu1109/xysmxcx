@@ -1,0 +1,13 @@
+页面区域,源图相对路径,素材文件,素材用途,是否透明化,是否允许二次裁剪,小程序目标路径,备注
+轮播图,help_adoption_page_assets/help_adoption_assets/banner/help_swiper_banner_01.png,help_swiper_banner_01.png,完整 Banner,是,否,static/help-adoption/help_swiper_banner_01.png,保留原文案和按钮
+列表缩略图,help_adoption_page_assets/help_adoption_assets/thumbs/help_thumb_xiaobai.png,help_thumb_xiaobai.png,第一条白猫缩略图,否,否,static/help-adoption/help_thumb_xiaobai.png,不透明
+列表缩略图,help_adoption_page_assets/help_adoption_assets/thumbs/help_thumb_xiaohua.png,help_thumb_xiaohua.png,第二条狸花猫缩略图,否,否,static/help-adoption/help_thumb_xiaohua.png,不透明
+列表缩略图,help_adoption_page_assets/help_adoption_assets/thumbs/help_thumb_juzi.png,help_thumb_juzi.png,第三条橘猫缩略图,否,否,static/help-adoption/help_thumb_juzi.png,不透明
+搜索图标,help_adoption_page_assets/help_adoption_assets/icons/help_icon_sheet.png,icon_search.png,搜索框左侧图标,是,否,static/help-adoption/icon_search.png,从透明图标平铺图拆分
+发布人图标,help_adoption_page_assets/help_adoption_assets/icons/help_icon_sheet.png,icon_user.png,发布人信息图标,是,否,static/help-adoption/icon_user.png,从透明图标平铺图拆分
+位置图标,help_adoption_page_assets/help_adoption_assets/icons/help_icon_sheet.png,icon_location.png,地点信息图标,是,否,static/help-adoption/icon_location.png,从透明图标平铺图拆分
+底部栏图标,help_adoption_page_assets/help_adoption_assets/icons/help_icon_sheet.png,tab_home_inactive.png,首页未选中,是,否,static/help-adoption/tab_home_inactive.png,从透明图标平铺图拆分
+底部栏图标,help_adoption_page_assets/help_adoption_assets/icons/help_icon_sheet.png,tab_catbook_inactive.png,猫咪图鉴未选中,是,否,static/help-adoption/tab_catbook_inactive.png,从透明图标平铺图拆分
+底部栏图标,help_adoption_page_assets/help_adoption_assets/icons/help_icon_sheet.png,tab_help_active.png,求助领养选中,是,否,static/help-adoption/tab_help_active.png,从透明图标平铺图拆分
+底部栏图标,help_adoption_page_assets/help_adoption_assets/icons/help_icon_sheet.png,tab_mine_inactive.png,我的未选中,是,否,static/help-adoption/tab_mine_inactive.png,从透明图标平铺图拆分
+装饰图标,help_adoption_page_assets/help_adoption_assets/icons/help_icon_sheet.png,icon_paw_decor.png,爪印装饰备用,是,否,static/help-adoption/icon_paw_decor.png,当前页面未引用

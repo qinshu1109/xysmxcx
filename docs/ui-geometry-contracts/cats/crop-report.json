@@ -1,0 +1,137 @@
+{
+  "page": "pages/cats/index",
+  "source": "cat_atlas_assets/",
+  "note": "本轮使用用户提供的页面专属已处理素材包，未重新裁剪效果图。",
+  "items": [
+    {
+      "file": "cat_xiaobai.jpg",
+      "source": "cat_atlas_assets/photos/cat_xiaobai.jpg",
+      "sourceSize": [1448, 1086],
+      "cropBox": null,
+      "outputSize": [1448, 1086],
+      "transparentized": false,
+      "manuallyConfirmed": false,
+      "risk": "未做 DevTools 视觉复核。"
+    },
+    {
+      "file": "cat_xiaohua.jpg",
+      "source": "cat_atlas_assets/photos/cat_xiaohua.jpg",
+      "sourceSize": [1448, 1086],
+      "cropBox": null,
+      "outputSize": [1448, 1086],
+      "transparentized": false,
+      "manuallyConfirmed": false,
+      "risk": "未做 DevTools 视觉复核。"
+    },
+    {
+      "file": "cat_juzi.jpg",
+      "source": "cat_atlas_assets/photos/cat_juzi.jpg",
+      "sourceSize": [1448, 1086],
+      "cropBox": null,
+      "outputSize": [1448, 1086],
+      "transparentized": false,
+      "manuallyConfirmed": false,
+      "risk": "未做 DevTools 视觉复核。"
+    },
+    {
+      "file": "cat_naigai.jpg",
+      "source": "cat_atlas_assets/photos/cat_naigai.jpg",
+      "sourceSize": [1448, 1086],
+      "cropBox": null,
+      "outputSize": [1448, 1086],
+      "transparentized": false,
+      "manuallyConfirmed": false,
+      "risk": "未做 DevTools 视觉复核。"
+    },
+    {
+      "file": "cat_zhima.jpg",
+      "source": "cat_atlas_assets/photos/cat_zhima.jpg",
+      "sourceSize": [1448, 1086],
+      "cropBox": null,
+      "outputSize": [1448, 1086],
+      "transparentized": false,
+      "manuallyConfirmed": false,
+      "risk": "未做 DevTools 视觉复核。"
+    },
+    {
+      "file": "cat_afu.jpg",
+      "source": "cat_atlas_assets/photos/cat_afu.jpg",
+      "sourceSize": [1448, 1086],
+      "cropBox": null,
+      "outputSize": [1448, 1086],
+      "transparentized": false,
+      "manuallyConfirmed": false,
+      "risk": "未做 DevTools 视觉复核。"
+    },
+    {
+      "file": "gender_female_badge.png",
+      "source": "cat_atlas_assets/icons/gender_female_badge.png",
+      "sourceSize": [512, 512],
+      "cropBox": null,
+      "outputSize": [512, 512],
+      "transparentized": true,
+      "manuallyConfirmed": false,
+      "risk": "素材包声明为真透明 PNG，已做 alpha 通道静态检查。"
+    },
+    {
+      "file": "gender_male_badge.png",
+      "source": "cat_atlas_assets/icons/gender_male_badge.png",
+      "sourceSize": [512, 512],
+      "cropBox": null,
+      "outputSize": [512, 512],
+      "transparentized": true,
+      "manuallyConfirmed": false,
+      "risk": "素材包声明为真透明 PNG，已做 alpha 通道静态检查。"
+    },
+    {
+      "file": "icon_search.png",
+      "source": "cat_atlas_assets/icons/icon_search.png",
+      "sourceSize": [512, 512],
+      "cropBox": null,
+      "outputSize": [512, 512],
+      "transparentized": true,
+      "manuallyConfirmed": false,
+      "risk": "素材包声明为真透明 PNG，已做 alpha 通道静态检查。"
+    },
+    {
+      "file": "tab_home_default.png",
+      "source": "cat_atlas_assets/icons/tab_home_default.png",
+      "sourceSize": [512, 512],
+      "cropBox": null,
+      "outputSize": [512, 512],
+      "transparentized": true,
+      "manuallyConfirmed": false,
+      "risk": "素材包声明为真透明 PNG，已做 alpha 通道静态检查。"
+    },
+    {
+      "file": "tab_cat_atlas_selected.png",
+      "source": "cat_atlas_assets/icons/tab_cat_atlas_selected.png",
+      "sourceSize": [512, 512],
+      "cropBox": null,
+      "outputSize": [512, 512],
+      "transparentized": true,
+      "manuallyConfirmed": false,
+      "risk": "素材包声明为真透明 PNG，已做 alpha 通道静态检查。"
+    },
+    {
+      "file": "tab_adoption_default.png",
+      "source": "cat_atlas_assets/icons/tab_adoption_default.png",
+      "sourceSize": [512, 512],
+      "cropBox": null,
+      "outputSize": [512, 512],
+      "transparentized": true,
+      "manuallyConfirmed": false,
+      "risk": "素材包声明为真透明 PNG，已做 alpha 通道静态检查。"
+    },
+    {
+      "file": "tab_profile_default.png",
+      "source": "cat_atlas_assets/icons/tab_profile_default.png",
+      "sourceSize": [512, 512],
+      "cropBox": null,
+      "outputSize": [512, 512],
+      "transparentized": true,
+      "manuallyConfirmed": false,
+      "risk": "素材包声明为真透明 PNG，已做 alpha 通道静态检查。"
+    }
+  ]
+}

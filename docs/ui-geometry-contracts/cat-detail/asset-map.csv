@@ -1,0 +1,13 @@
+页面区域,源图相对路径,素材文件,素材用途,是否透明化,是否允许二次裁剪,小程序目标路径,备注
+顶部导航,cat_detail_full_assets_pack/icons/trimmed/01_back_arrow.png,icon_back_arrow.png,返回按钮,是,否,static/cat-detail/icon_back_arrow.png,素材包已预处理
+详情信息,cat_detail_full_assets_pack/icons/trimmed/02_heart.png,icon_heart.png,性格图标,是,否,static/cat-detail/icon_heart.png,素材包已预处理
+详情信息,cat_detail_full_assets_pack/icons/trimmed/03_location_pin.png,icon_location_pin.png,出没地点图标,是,否,static/cat-detail/icon_location_pin.png,素材包已预处理
+详情信息,cat_detail_full_assets_pack/icons/trimmed/04_health_cross.png,icon_health_cross.png,健康情况图标,是,否,static/cat-detail/icon_health_cross.png,素材包已预处理
+详情信息,cat_detail_full_assets_pack/icons/trimmed/05_care_status.png,icon_care_status.png,绝育状态图标,是,否,static/cat-detail/icon_care_status.png,素材包已预处理
+详情信息,cat_detail_full_assets_pack/icons/trimmed/06_paw.png,icon_paw.png,领养状态图标,是,否,static/cat-detail/icon_paw.png,素材包已预处理
+详情信息,cat_detail_full_assets_pack/icons/trimmed/07_note_list.png,icon_note_list.png,备注图标,是,否,static/cat-detail/icon_note_list.png,素材包已预处理
+评论输入,cat_detail_full_assets_pack/icons/trimmed/08_comment_face.png,icon_comment_face.png,评论输入图标,是,否,static/cat-detail/icon_comment_face.png,素材包已预处理
+猫咪主图,cat_detail_full_assets_pack/hero/white_cat_top_hero.jpg,white_cat_top_hero.jpg,猫咪详情大图,否,否,static/cat-detail/white_cat_top_hero.jpg,详情页完整素材包补齐
+评论头像,cat_detail_full_assets_pack/comment_avatars/cropped_512/01_xiaotaiyang_girl_avatar.png,comment_avatar_xiaotaiyang.png,小太阳头像,是,否,static/cat-detail/comment_avatar_xiaotaiyang.png,详情页完整素材包补齐
+评论头像,cat_detail_full_assets_pack/comment_avatars/cropped_512/02_aimaorenshi_white_cat_avatar.png,comment_avatar_aimaorenshi.png,爱猫人士头像,是,否,static/cat-detail/comment_avatar_aimaorenshi.png,详情页完整素材包补齐
+评论头像,cat_detail_full_assets_pack/comment_avatars/cropped_512/03_chunri_nuanyang_daisy_avatar.png,comment_avatar_chunri_nuanyang.png,春日暖阳头像,是,否,static/cat-detail/comment_avatar_chunri_nuanyang.png,详情页完整素材包补齐

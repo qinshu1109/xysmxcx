@@ -1,0 +1,35 @@
+{
+  "page": "pages/help/index",
+  "pageName": "求助领养",
+  "sourceRole": "页面专属已处理素材包",
+  "assetPackage": {
+    "path": "help_adoption_page_assets/help_adoption_assets/",
+    "manifestPath": "help_adoption_page_assets/help_adoption_assets/manifest.json",
+    "readmePath": "help_adoption_page_assets/help_adoption_assets/README.md",
+    "includes": [
+      "完整轮播 Banner",
+      "三张求助领养缩略图",
+      "4 列 × 2 行透明图标平铺图"
+    ]
+  },
+  "target": {
+    "miniprogramRootRole": "微信开发者工具工程的 miniprogramRoot",
+    "pagePath": "pages/help/index",
+    "assetPath": "static/help-adoption/"
+  },
+  "pageStructure": [
+    "自定义顶部标题",
+    "完整 Banner",
+    "搜索框",
+    "类型筛选",
+    "状态筛选",
+    "求助领养列表",
+    "自定义底部栏"
+  ],
+  "processingTime": "current task run",
+  "unverified": [
+    "未做微信开发者工具截图验证",
+    "未做真机验证",
+    "未做后端 GET /help-posts 联调"
+  ]
+}

@@ -1,0 +1,200 @@
+{
+  "page": "pages/cat-detail/index",
+  "reference": "效果图/ChatGPT Image 2026年6月8日 19_00_57 (3).png",
+  "source": "cat_detail_full_assets_pack/",
+  "note": "本轮使用用户提供的详情页完整素材包，补齐主图和评论头像；未重新裁剪效果图。",
+  "items": [
+    {
+      "file": "icon_back_arrow.png",
+      "source": "cat_detail_icons_transparent_pack/icons_trimmed/01_back_arrow.png",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "cropBox": null,
+      "outputSize": [
+        512,
+        512
+      ],
+      "transparentized": true,
+      "manuallyConfirmed": false,
+      "risk": "素材包声明为真透明 PNG，已做 alpha 通道静态检查。"
+    },
+    {
+      "file": "icon_heart.png",
+      "source": "cat_detail_icons_transparent_pack/icons_trimmed/02_heart.png",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "cropBox": null,
+      "outputSize": [
+        512,
+        512
+      ],
+      "transparentized": true,
+      "manuallyConfirmed": false,
+      "risk": "素材包声明为真透明 PNG，已做 alpha 通道静态检查。"
+    },
+    {
+      "file": "icon_location_pin.png",
+      "source": "cat_detail_icons_transparent_pack/icons_trimmed/03_location_pin.png",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "cropBox": null,
+      "outputSize": [
+        512,
+        512
+      ],
+      "transparentized": true,
+      "manuallyConfirmed": false,
+      "risk": "素材包声明为真透明 PNG，已做 alpha 通道静态检查。"
+    },
+    {
+      "file": "icon_health_cross.png",
+      "source": "cat_detail_icons_transparent_pack/icons_trimmed/04_health_cross.png",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "cropBox": null,
+      "outputSize": [
+        512,
+        512
+      ],
+      "transparentized": true,
+      "manuallyConfirmed": false,
+      "risk": "素材包声明为真透明 PNG，已做 alpha 通道静态检查。"
+    },
+    {
+      "file": "icon_care_status.png",
+      "source": "cat_detail_icons_transparent_pack/icons_trimmed/05_care_status.png",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "cropBox": null,
+      "outputSize": [
+        512,
+        512
+      ],
+      "transparentized": true,
+      "manuallyConfirmed": false,
+      "risk": "素材包声明为真透明 PNG，已做 alpha 通道静态检查。"
+    },
+    {
+      "file": "icon_paw.png",
+      "source": "cat_detail_icons_transparent_pack/icons_trimmed/06_paw.png",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "cropBox": null,
+      "outputSize": [
+        512,
+        512
+      ],
+      "transparentized": true,
+      "manuallyConfirmed": false,
+      "risk": "素材包声明为真透明 PNG，已做 alpha 通道静态检查。"
+    },
+    {
+      "file": "icon_note_list.png",
+      "source": "cat_detail_icons_transparent_pack/icons_trimmed/07_note_list.png",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "cropBox": null,
+      "outputSize": [
+        512,
+        512
+      ],
+      "transparentized": true,
+      "manuallyConfirmed": false,
+      "risk": "素材包声明为真透明 PNG，已做 alpha 通道静态检查。"
+    },
+    {
+      "file": "icon_comment_face.png",
+      "source": "cat_detail_icons_transparent_pack/icons_trimmed/08_comment_face.png",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "cropBox": null,
+      "outputSize": [
+        512,
+        512
+      ],
+      "transparentized": true,
+      "manuallyConfirmed": false,
+      "risk": "素材包声明为真透明 PNG，已做 alpha 通道静态检查。"
+    },
+    {
+      "file": "white_cat_top_hero.jpg",
+      "source": "cat_detail_full_assets_pack/hero/white_cat_top_hero.jpg",
+      "sourceSize": [
+        1619,
+        971
+      ],
+      "cropBox": null,
+      "outputSize": [
+        1619,
+        971
+      ],
+      "transparentized": false,
+      "manuallyConfirmed": false,
+      "risk": "素材包已预处理；未做 DevTools 视觉复核。"
+    },
+    {
+      "file": "comment_avatar_xiaotaiyang.png",
+      "source": "cat_detail_full_assets_pack/comment_avatars/cropped_512/01_xiaotaiyang_girl_avatar.png",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "cropBox": null,
+      "outputSize": [
+        512,
+        512
+      ],
+      "transparentized": true,
+      "manuallyConfirmed": false,
+      "risk": "素材包已预处理；已做 alpha 通道静态检查。"
+    },
+    {
+      "file": "comment_avatar_aimaorenshi.png",
+      "source": "cat_detail_full_assets_pack/comment_avatars/cropped_512/02_aimaorenshi_white_cat_avatar.png",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "cropBox": null,
+      "outputSize": [
+        512,
+        512
+      ],
+      "transparentized": true,
+      "manuallyConfirmed": false,
+      "risk": "素材包已预处理；已做 alpha 通道静态检查。"
+    },
+    {
+      "file": "comment_avatar_chunri_nuanyang.png",
+      "source": "cat_detail_full_assets_pack/comment_avatars/cropped_512/03_chunri_nuanyang_daisy_avatar.png",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "cropBox": null,
+      "outputSize": [
+        512,
+        512
+      ],
+      "transparentized": true,
+      "manuallyConfirmed": false,
+      "risk": "素材包已预处理；已做 alpha 通道静态检查。"
+    }
+  ]
+}

@@ -1,20 +1,28 @@
-const { catDetailData } = require('../../utils/mockData')
+const { getCatDetail } = require('../../api/cats')
+const { getComments, createComment } = require('../../api/comments')
+const { requireLogin } = require('../../utils/auth')
+const { adaptCatDetail, adaptComment } = require('../../utils/adapters')
 
 Page({
   data: {
     title: '猫咪详情',
-    cat: catDetailData.cat,
-    comments: catDetailData.comments,
+    id: '',
+    cat: null,
+    comments: [],
     commentText: '',
-    status: 'ready',
+    status: 'loading',
     errorMessage: '',
     navHeight: 88,
     navContentTop: 44,
     menuHeight: 32
   },
 
-  onLoad() {
+  onLoad(options) {
     this.setLayoutMetrics()
+    this.setData({
+      id: options && options.id ? options.id : ''
+    })
+    this.loadDetail()
   },
 
   setLayoutMetrics() {
@@ -30,6 +38,33 @@ Page({
       menuHeight,
       navHeight: statusBarHeight + gap + menuHeight + gap
     })
+  },
+
+  loadDetail() {
+    const id = this.data.id
+    if (!id) {
+      this.setData({ status: 'error', errorMessage: '缺少猫咪 ID' })
+      return
+    }
+
+    this.setData({ status: 'loading', errorMessage: '' })
+    Promise.all([
+      getCatDetail(id),
+      getComments({ targetType: 'cat', targetId: id, page: 1, pageSize: 20 })
+    ])
+      .then(([cat, comments]) => {
+        this.setData({
+          cat: adaptCatDetail(cat),
+          comments: (comments.items || []).map(adaptComment),
+          status: 'ready'
+        })
+      })
+      .catch((error) => {
+        this.setData({
+          status: 'error',
+          errorMessage: error && error.message ? error.message : '猫咪详情加载失败'
+        })
+      })
   },
 
   onTapBack() {
@@ -59,25 +94,23 @@ Page({
       return
     }
 
-    const comments = [
-      {
-        id: Date.now(),
-        nickname: '我',
-        avatar: '/static/cat-detail/icon_comment_face.png',
-        content,
-        time: '刚刚'
-      },
-      ...this.data.comments
-    ]
+    if (!requireLogin(`/pages/cat-detail/index?id=${this.data.id}`)) {
+      return
+    }
 
-    this.setData({
-      comments,
-      commentText: ''
+    createComment({
+      targetType: 'cat',
+      targetId: Number(this.data.id),
+      content
     })
-
-    wx.showToast({
-      title: '已发送',
-      icon: 'none'
-    })
+      .then(() => {
+        this.setData({ commentText: '' })
+        wx.showToast({
+          title: '已发送',
+          icon: 'none'
+        })
+        this.loadDetail()
+      })
+      .catch(() => {})
   }
 })

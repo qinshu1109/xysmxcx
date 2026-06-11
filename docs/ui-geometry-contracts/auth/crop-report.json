@@ -1,0 +1,120 @@
+{
+  "pageGroup": "auth-login-register",
+  "sourceImages": [
+    {
+      "path": "auth_login_register_page_assets/auth_page_assets/backgrounds/auth_login_bg.png",
+      "size": [941, 1672],
+      "mode": "RGB",
+      "alpha": false
+    },
+    {
+      "path": "auth_login_register_page_assets/auth_page_assets/backgrounds/auth_register_bg.png",
+      "size": [941, 1672],
+      "mode": "RGB",
+      "alpha": false
+    },
+    {
+      "path": "auth_login_register_page_assets/auth_page_assets/mascots/auth_login_mascot_cat.png",
+      "size": [1254, 1254],
+      "mode": "RGBA",
+      "alpha": true
+    },
+    {
+      "path": "auth_login_register_page_assets/auth_page_assets/mascots/auth_register_mascot_cat.png",
+      "size": [1254, 1254],
+      "mode": "RGBA",
+      "alpha": true
+    },
+    {
+      "path": "auth_login_register_page_assets/auth_page_assets/icons/auth_icon_sheet.png",
+      "size": [1774, 887],
+      "mode": "RGBA",
+      "alpha": true
+    }
+  ],
+  "outputs": [
+    {
+      "file": "static/auth/auth_login_mascot_cat_fitted.png",
+      "source": "auth_login_register_page_assets/auth_page_assets/mascots/auth_login_mascot_cat.png",
+      "cropBox": [67, 186, 1142, 1066],
+      "sourceAlphaBox": [103, 222, 1106, 1030],
+      "outputSize": [960, 720],
+      "outputAlphaBox": [55, 32, 904, 716],
+      "transparent": true,
+      "reason": "原透明画布过大，直接 aspectFit 会导致可见吉祥物偏小"
+    },
+    {
+      "file": "static/auth/auth_register_mascot_cat_fitted.png",
+      "source": "auth_login_register_page_assets/auth_page_assets/mascots/auth_register_mascot_cat.png",
+      "cropBox": [119, 155, 1166, 1074],
+      "sourceAlphaBox": [155, 191, 1130, 1038],
+      "outputSize": [960, 720],
+      "outputAlphaBox": [86, 32, 873, 716],
+      "transparent": true,
+      "reason": "原透明画布过大，直接 aspectFit 会导致可见吉祥物偏小"
+    },
+    {
+      "file": "static/auth/icon_back.png",
+      "source": "auth_login_register_page_assets/auth_page_assets/icons/auth_icon_sheet.png",
+      "cropBox": [155, 145, 370, 370],
+      "outputSize": [256, 256],
+      "transparent": true
+    },
+    {
+      "file": "static/auth/icon_user.png",
+      "source": "auth_login_register_page_assets/auth_page_assets/icons/auth_icon_sheet.png",
+      "cropBox": [560, 120, 820, 385],
+      "outputSize": [256, 256],
+      "transparent": true
+    },
+    {
+      "file": "static/auth/icon_profile_card.png",
+      "source": "auth_login_register_page_assets/auth_page_assets/icons/auth_icon_sheet.png",
+      "cropBox": [960, 120, 1250, 380],
+      "outputSize": [256, 256],
+      "transparent": true
+    },
+    {
+      "file": "static/auth/icon_lock.png",
+      "source": "auth_login_register_page_assets/auth_page_assets/icons/auth_icon_sheet.png",
+      "cropBox": [1370, 105, 1628, 385],
+      "outputSize": [256, 256],
+      "transparent": true
+    },
+    {
+      "file": "static/auth/icon_lock_check.png",
+      "source": "auth_login_register_page_assets/auth_page_assets/icons/auth_icon_sheet.png",
+      "cropBox": [130, 500, 380, 760],
+      "outputSize": [256, 256],
+      "transparent": true
+    },
+    {
+      "file": "static/auth/icon_eye.png",
+      "source": "auth_login_register_page_assets/auth_page_assets/icons/auth_icon_sheet.png",
+      "cropBox": [560, 500, 820, 760],
+      "outputSize": [256, 256],
+      "transparent": true
+    },
+    {
+      "file": "static/auth/icon_eye_off.png",
+      "source": "auth_login_register_page_assets/auth_page_assets/icons/auth_icon_sheet.png",
+      "cropBox": [960, 500, 1250, 760],
+      "outputSize": [256, 256],
+      "transparent": true
+    },
+    {
+      "file": "static/auth/decor_paw.png",
+      "source": "auth_login_register_page_assets/auth_page_assets/icons/auth_icon_sheet.png",
+      "cropBox": [1365, 500, 1645, 780],
+      "outputSize": [256, 256],
+      "transparent": true
+    }
+  ],
+  "copiedWithoutCrop": [
+    "static/auth/auth_login_bg.png",
+    "static/auth/auth_register_bg.png",
+    "static/auth/auth_login_mascot_cat.png",
+    "static/auth/auth_register_mascot_cat.png"
+  ],
+  "risk": "未做 DevTools 视觉截图确认"
+}

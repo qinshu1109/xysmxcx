@@ -1,13 +1,16 @@
-const { publishHelpAdoptionData } = require('../../utils/mockData')
+const { publishPage } = require('../../utils/pageAssets')
+const { requireLogin } = require('../../utils/auth')
+const { uploadFile } = require('../../api/upload')
+const { createHelpPost } = require('../../api/helpPosts')
 
 Page({
   data: {
     title: '发布求助领养',
-    banner: publishHelpAdoptionData.banner,
-    typeOptions: publishHelpAdoptionData.typeOptions,
-    form: publishHelpAdoptionData.form,
-    uploadPhotos: publishHelpAdoptionData.uploadPhotos,
-    assets: publishHelpAdoptionData.assets,
+    banner: publishPage.banner,
+    typeOptions: publishPage.typeOptions,
+    form: { ...publishPage.form },
+    uploadPhotos: [],
+    assets: publishPage.assets,
     titleCount: 0,
     descriptionCount: 0,
     state: 'ready',
@@ -19,6 +22,7 @@ Page({
 
   onLoad() {
     this.setLayoutMetrics()
+    requireLogin('/pages/publish/index')
   },
 
   setLayoutMetrics() {
@@ -82,25 +86,65 @@ Page({
 
   onTapLocation() {
     wx.showToast({
-      title: '地图选择后续接入',
+      title: '请直接输入地点',
       icon: 'none'
     })
   },
 
   onTapUpload() {
-    wx.showToast({
-      title: '上传功能后续接入',
-      icon: 'none'
+    const remain = 3 - this.data.uploadPhotos.length
+    if (remain <= 0) {
+      wx.showToast({
+        title: '最多上传 3 张',
+        icon: 'none'
+      })
+      return
+    }
+
+    const onChoose = (paths) => {
+      const current = this.data.uploadPhotos
+      const added = paths.slice(0, remain).map((path) => ({
+        id: `${Date.now()}-${Math.random()}`,
+        image: path,
+        filePath: path
+      }))
+      this.setData({
+        uploadPhotos: current.concat(added)
+      })
+    }
+
+    if (wx.chooseMedia) {
+      wx.chooseMedia({
+        count: remain,
+        mediaType: ['image'],
+        sourceType: ['album', 'camera'],
+        success(res) {
+          onChoose((res.tempFiles || []).map((file) => file.tempFilePath))
+        }
+      })
+      return
+    }
+
+    wx.chooseImage({
+      count: remain,
+      sourceType: ['album', 'camera'],
+      success(res) {
+        onChoose(res.tempFilePaths || [])
+      }
     })
   },
 
   onRemovePhoto(event) {
-    const id = Number(event.currentTarget.dataset.id)
+    const id = event.currentTarget.dataset.id
     const uploadPhotos = this.data.uploadPhotos.filter((item) => item.id !== id)
     this.setData({ uploadPhotos })
   },
 
   onSubmit() {
+    if (!requireLogin('/pages/publish/index')) {
+      return
+    }
+
     const form = this.data.form
     if (!form.title.trim()) {
       wx.showToast({ title: '请填写标题', icon: 'none' })
@@ -122,9 +166,39 @@ Page({
       return
     }
 
-    wx.showToast({
-      title: '已提交发布',
-      icon: 'none'
-    })
+    this.setData({ state: 'loading', errorMessage: '' })
+    wx.showLoading({ title: '发布中', mask: true })
+    Promise.all(this.data.uploadPhotos.map((photo) => uploadFile(photo.filePath)))
+      .then((images) => createHelpPost({
+        title: form.title.trim(),
+        type: form.type,
+        description: form.description.trim(),
+        location: form.location.trim(),
+        contactPhone: form.contact.trim(),
+        images
+      }))
+      .then((created) => {
+        wx.showToast({
+          title: '发布成功',
+          icon: 'none'
+        })
+        const id = created && created.id
+        setTimeout(() => {
+          if (id) {
+            wx.redirectTo({ url: `/pages/help-detail/index?id=${id}` })
+            return
+          }
+          wx.switchTab({ url: '/pages/help/index' })
+        }, 300)
+      })
+      .catch((error) => {
+        this.setData({
+          state: 'ready',
+          errorMessage: error && error.message ? error.message : '发布失败'
+        })
+      })
+      .finally(() => {
+        wx.hideLoading()
+      })
   }
 })

@@ -473,3 +473,21 @@ page {
 .send-button::after {
   border: 0;
 }
+
+.status-pill--processing {
+  color: #2f91ff;
+  background: #e7f1ff;
+}
+
+.status-pill--done {
+  color: #3ba66b;
+  background: #e4f7ed;
+}
+
+.state-block {
+  padding: 44rpx 0;
+  color: #9c9a9a;
+  font-size: 26rpx;
+  line-height: 38rpx;
+  text-align: center;
+}

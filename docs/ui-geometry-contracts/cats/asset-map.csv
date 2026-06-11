@@ -1,0 +1,14 @@
+页面区域,源图相对路径,裁剪素材文件,素材用途,是否透明化,是否允许二次裁剪,小程序目标路径,备注
+猫咪照片,cat_atlas_assets/photos/cat_xiaobai.jpg,cat_xiaobai.jpg,小白卡片头图,否,否,static/cats-page/cat_xiaobai.jpg,素材包已预处理
+猫咪照片,cat_atlas_assets/photos/cat_xiaohua.jpg,cat_xiaohua.jpg,小花卡片头图,否,否,static/cats-page/cat_xiaohua.jpg,素材包已预处理
+猫咪照片,cat_atlas_assets/photos/cat_juzi.jpg,cat_juzi.jpg,橘子卡片头图,否,否,static/cats-page/cat_juzi.jpg,素材包已预处理
+猫咪照片,cat_atlas_assets/photos/cat_naigai.jpg,cat_naigai.jpg,奶盖卡片头图,否,否,static/cats-page/cat_naigai.jpg,素材包已预处理
+猫咪照片,cat_atlas_assets/photos/cat_zhima.jpg,cat_zhima.jpg,芝麻卡片头图,否,否,static/cats-page/cat_zhima.jpg,素材包已预处理
+猫咪照片,cat_atlas_assets/photos/cat_afu.jpg,cat_afu.jpg,阿福卡片头图,否,否,static/cats-page/cat_afu.jpg,素材包已预处理
+性别角标,cat_atlas_assets/icons/gender_female_badge.png,gender_female_badge.png,雌性角标,是,否,static/cats-page/gender_female_badge.png,RGBA 真透明
+性别角标,cat_atlas_assets/icons/gender_male_badge.png,gender_male_badge.png,雄性角标,是,否,static/cats-page/gender_male_badge.png,RGBA 真透明
+搜索图标,cat_atlas_assets/icons/icon_search.png,icon_search.png,搜索框左侧图标,是,否,static/cats-page/icon_search.png,RGBA 真透明
+底部栏图标,cat_atlas_assets/icons/tab_home_default.png,tab_home_default.png,首页未选中,是,否,static/cats-page/tab_home_default.png,RGBA 真透明
+底部栏图标,cat_atlas_assets/icons/tab_cat_atlas_selected.png,tab_cat_atlas_selected.png,猫咪图鉴选中,是,否,static/cats-page/tab_cat_atlas_selected.png,RGBA 真透明
+底部栏图标,cat_atlas_assets/icons/tab_adoption_default.png,tab_adoption_default.png,求助领养未选中,是,否,static/cats-page/tab_adoption_default.png,RGBA 真透明
+底部栏图标,cat_atlas_assets/icons/tab_profile_default.png,tab_profile_default.png,我的未选中,是,否,static/cats-page/tab_profile_default.png,RGBA 真透明

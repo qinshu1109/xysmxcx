@@ -1,0 +1,12 @@
+页面区域,源素材,运行素材,素材用途,是否透明化,是否裁剪或拆分,备注
+顶部提示横幅,mycomments_page_assets/banner/mycomments_tip_banner_01.png,static/mycomments/mycomments_tip_banner_01.png,顶部完整横幅,否,否,保留完整视觉
+返回图标,mycomments_page_assets/icons/mycomments_icon_sheet.png,static/mycomments/icon_back.png,自定义导航返回,是,是,从透明图标表拆分
+时间图标,mycomments_page_assets/icons/mycomments_icon_sheet.png,static/mycomments/icon_time.png,评论时间图标,是,是,从透明图标表拆分
+详情箭头,mycomments_page_assets/icons/mycomments_icon_sheet.png,static/mycomments/icon_arrow_right.png,查看详情按钮箭头,是,是,从透明图标表拆分
+提示气泡,mycomments_page_assets/icons/mycomments_icon_sheet.png,static/mycomments/icon_comment_tip.png,提示横幅备用图标,是,是,从透明图标表拆分
+空状态爪印,mycomments_page_assets/icons/mycomments_icon_sheet.png,static/mycomments/decor_paw.png,空状态装饰,是,是,从透明图标表拆分
+小白评论对象,mycomments_page_assets/thumbs/mycomments_target_thumb_sheet.png,static/mycomments/target_xiaobai.png,评论对象缩略图,是,是,从透明缩略图表拆分
+小花评论对象,mycomments_page_assets/thumbs/mycomments_target_thumb_sheet.png,static/mycomments/target_xiaohua.png,评论对象缩略图,是,是,从透明缩略图表拆分
+求助评论对象,mycomments_page_assets/thumbs/mycomments_target_thumb_sheet.png,static/mycomments/target_help.png,评论对象类型图标,是,是,从透明缩略图表拆分
+寻猫评论对象,mycomments_page_assets/thumbs/mycomments_target_thumb_sheet.png,static/mycomments/target_lost.png,评论对象类型图标,是,是,从透明缩略图表拆分
+志愿者评论对象,mycomments_page_assets/thumbs/mycomments_target_thumb_sheet.png,static/mycomments/target_volunteer.png,评论对象类型图标,是,是,从透明缩略图表拆分

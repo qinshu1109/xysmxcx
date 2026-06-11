@@ -17,51 +17,59 @@
 
   <scroll-view class="detail-scroll" scroll-y enhanced="{{true}}" show-scrollbar="{{false}}">
     <view class="detail-content" style="padding-top: {{navHeight}}px;">
-      <image class="hero-image" src="{{cat.image}}" mode="aspectFill" />
+      <view class="state-block" wx:if="{{status === 'loading'}}">加载中</view>
+      <view class="state-block" wx:elif="{{status === 'error'}}">{{errorMessage}}</view>
 
-      <view class="profile-card">
-        <view class="profile-main">
-          <view class="cat-name">{{cat.name}}</view>
-          <view class="intro-tags">
-            <block wx:for="{{cat.introTags}}" wx:key="*this">
-              <view class="intro-tag">{{item}}</view>
-            </block>
-          </view>
-        </view>
-        <view class="adopt-pill">{{cat.adoptableText}}</view>
-      </view>
+      <block wx:else>
+        <image class="hero-image" src="{{cat.image}}" mode="aspectFill" />
 
-      <view class="info-card">
-        <block wx:for="{{cat.details}}" wx:key="key">
-          <view class="info-row">
-            <view class="info-icon-box">
-              <image class="info-icon" src="{{item.icon}}" mode="aspectFit" />
+        <view class="profile-card">
+          <view class="profile-main">
+            <view class="cat-name">{{cat.name}}</view>
+            <view class="intro-tags">
+              <block wx:for="{{cat.introTags}}" wx:key="*this">
+                <view class="intro-tag">{{item}}</view>
+              </block>
             </view>
-            <view class="info-label">{{item.label}}：</view>
-            <view class="info-value {{item.highlight ? 'is-highlight' : ''}}">{{item.value}}</view>
           </view>
-        </block>
-      </view>
-
-      <view class="comment-card">
-        <view class="section-head">
-          <view class="section-bar"></view>
-          <view class="section-title">大家的评论</view>
+          <view class="adopt-pill">{{cat.adoptableText}}</view>
         </view>
 
-        <block wx:for="{{comments}}" wx:key="id">
-          <view class="comment-item">
-            <image class="comment-avatar" src="{{item.avatar}}" mode="aspectFill" />
-            <view class="comment-body">
-              <view class="comment-top">
-                <view class="comment-name">{{item.nickname}}</view>
-                <view class="comment-time">{{item.time}}</view>
+        <view class="info-card">
+          <block wx:for="{{cat.details}}" wx:key="key">
+            <view class="info-row">
+              <view class="info-icon-box">
+                <image class="info-icon" src="{{item.icon}}" mode="aspectFit" />
               </view>
-              <view class="comment-text">{{item.content}}</view>
+              <view class="info-label">{{item.label}}：</view>
+              <view class="info-value {{item.highlight ? 'is-highlight' : ''}}">{{item.value}}</view>
             </view>
+          </block>
+        </view>
+
+        <view class="comment-card">
+          <view class="section-head">
+            <view class="section-bar"></view>
+            <view class="section-title">大家的评论</view>
           </view>
-        </block>
-      </view>
+
+          <view class="state-block" wx:if="{{comments.length === 0}}">暂无评论</view>
+          <block wx:else>
+            <block wx:for="{{comments}}" wx:key="id">
+              <view class="comment-item">
+                <image class="comment-avatar" src="{{item.avatar}}" mode="aspectFill" />
+                <view class="comment-body">
+                  <view class="comment-top">
+                    <view class="comment-name">{{item.nickname}}</view>
+                    <view class="comment-time">{{item.time}}</view>
+                  </view>
+                  <view class="comment-text">{{item.content}}</view>
+                </view>
+              </view>
+            </block>
+          </block>
+        </view>
+      </block>
     </view>
   </scroll-view>
 

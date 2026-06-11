@@ -1,0 +1,59 @@
+{
+  "page": "pages/help-detail/index",
+  "pageTitle": "求助详情",
+  "reference": {
+    "type": "user_corrected_effect_image",
+    "relativePath": "效果图/ChatGPT Image 2026年6月8日 19_00_58 (5).png",
+    "containsPhoneFrame": true,
+    "containsStatusBar": true,
+    "containsWechatCapsule": true
+  },
+  "authoritativeAssetSource": {
+    "relativePath": "help_detail_page_assets/help_detail_assets",
+    "manifest": "help_detail_page_assets/help_detail_assets/manifest.json",
+    "readme": "help_detail_page_assets/help_detail_assets/README.md"
+  },
+  "sourceAssets": [
+    {
+      "relativePath": "help_detail_page_assets/help_detail_assets/photos/help_detail_hero_photo.png",
+      "size": [1672, 941],
+      "mode": "RGB",
+      "hasAlpha": false
+    },
+    {
+      "relativePath": "help_detail_page_assets/help_detail_assets/avatars/help_detail_comment_avatar_sheet.png",
+      "size": [2172, 724],
+      "mode": "RGBA",
+      "hasAlpha": true
+    },
+    {
+      "relativePath": "help_detail_page_assets/help_detail_assets/icons/help_detail_icon_sheet.png",
+      "size": [1774, 887],
+      "mode": "RGBA",
+      "hasAlpha": true
+    },
+    {
+      "relativePath": "help_detail_page_assets/help_detail_assets/progress/help_detail_progress_line_asset.png",
+      "size": [1828, 72],
+      "mode": "RGBA",
+      "hasAlpha": true
+    }
+  ],
+  "targetRuntimeAssetDir": "static/help-detail/",
+  "pageStructure": [
+    "custom navigation title",
+    "hero photo",
+    "summary card",
+    "description card",
+    "contact card",
+    "progress card",
+    "volunteer comments",
+    "fixed comment input bar"
+  ],
+  "createdAt": "2026-06-09",
+  "unverified": [
+    "未做微信开发者工具截图验证",
+    "未做真机验证",
+    "未做像素级截图 diff"
+  ]
+}

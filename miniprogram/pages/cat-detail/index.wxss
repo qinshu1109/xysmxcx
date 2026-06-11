@@ -354,3 +354,11 @@ page {
   font-size: 27rpx;
   font-weight: 700;
 }
+
+.state-block {
+  padding: 44rpx 0;
+  color: #9c9a9a;
+  font-size: 26rpx;
+  line-height: 38rpx;
+  text-align: center;
+}

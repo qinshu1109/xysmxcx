@@ -1,0 +1,134 @@
+{
+  "page": "pages/publish/index",
+  "targetDir": "static/publish/",
+  "sourceAssets": {
+    "banner": {
+      "relativePath": "publish_help_adoption_page_assets/publish_help_adoption_assets/banner/publish_tip_banner_01.png",
+      "sourceSize": [2172, 724]
+    },
+    "thumbnails": {
+      "xiaohua": {
+        "relativePath": "publish_help_adoption_page_assets/publish_help_adoption_assets/thumbnails/publish_upload_thumb_xiaohua.png",
+        "sourceSize": [1254, 1254]
+      },
+      "xiaobai": {
+        "relativePath": "publish_help_adoption_page_assets/publish_help_adoption_assets/thumbnails/publish_upload_thumb_xiaobai.png",
+        "sourceSize": [1254, 1254]
+      }
+    },
+    "icons": {
+      "relativePath": "publish_help_adoption_page_assets/publish_help_adoption_assets/icons/publish_icon_sheet.png",
+      "sourceSize": [1774, 887],
+      "grid": "4 columns x 2 rows"
+    }
+  },
+  "outputs": [
+    {
+      "file": "publish_tip_banner_01.png",
+      "source": "publish_help_adoption_page_assets/publish_help_adoption_assets/banner/publish_tip_banner_01.png",
+      "sourceSize": [2172, 724],
+      "cropBox": [0, 0, 2172, 724],
+      "outputSize": [2172, 724],
+      "transparent": false,
+      "risk": "完整横幅按素材包直接复制，页面中按固定尺寸显示。"
+    },
+    {
+      "file": "publish_upload_thumb_xiaohua.png",
+      "source": "publish_help_adoption_page_assets/publish_help_adoption_assets/thumbnails/publish_upload_thumb_xiaohua.png",
+      "sourceSize": [1254, 1254],
+      "cropBox": [0, 0, 1254, 1254],
+      "outputSize": [1254, 1254],
+      "transparent": false,
+      "risk": "不透明缩略图未裁剪。"
+    },
+    {
+      "file": "publish_upload_thumb_xiaobai.png",
+      "source": "publish_help_adoption_page_assets/publish_help_adoption_assets/thumbnails/publish_upload_thumb_xiaobai.png",
+      "sourceSize": [1254, 1254],
+      "cropBox": [0, 0, 1254, 1254],
+      "outputSize": [1254, 1254],
+      "transparent": false,
+      "risk": "不透明缩略图未裁剪。"
+    },
+    {
+      "file": "icon_back_arrow.png",
+      "source": "publish_help_adoption_page_assets/publish_help_adoption_assets/icons/publish_icon_sheet.png",
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 0, 444, 444],
+      "alphaContentBox": [208, 176, 281, 304],
+      "outputSize": [128, 128],
+      "transparent": true,
+      "risk": "从透明 sheet 归一化输出。"
+    },
+    {
+      "file": "icon_arrow_right.png",
+      "source": "publish_help_adoption_page_assets/publish_help_adoption_assets/icons/publish_icon_sheet.png",
+      "sourceSize": [1774, 887],
+      "cropBox": [444, 0, 887, 444],
+      "alphaContentBox": [645, 176, 716, 304],
+      "outputSize": [128, 128],
+      "transparent": true,
+      "risk": "从透明 sheet 归一化输出。"
+    },
+    {
+      "file": "icon_plus.png",
+      "source": "publish_help_adoption_page_assets/publish_help_adoption_assets/icons/publish_icon_sheet.png",
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 0, 1330, 444],
+      "alphaContentBox": [1028, 176, 1160, 304],
+      "outputSize": [128, 128],
+      "transparent": true,
+      "risk": "从透明 sheet 归一化输出。"
+    },
+    {
+      "file": "icon_close.png",
+      "source": "publish_help_adoption_page_assets/publish_help_adoption_assets/icons/publish_icon_sheet.png",
+      "sourceSize": [1774, 887],
+      "cropBox": [1330, 0, 1774, 444],
+      "alphaContentBox": [1430, 161, 1589, 319],
+      "outputSize": [96, 96],
+      "transparent": true,
+      "risk": "从透明 sheet 归一化输出。"
+    },
+    {
+      "file": "icon_privacy_shield.png",
+      "source": "publish_help_adoption_page_assets/publish_help_adoption_assets/icons/publish_icon_sheet.png",
+      "sourceSize": [1774, 887],
+      "cropBox": [0, 444, 444, 887],
+      "alphaContentBox": [182, 539, 321, 699],
+      "outputSize": [128, 128],
+      "transparent": true,
+      "risk": "从透明 sheet 归一化输出。"
+    },
+    {
+      "file": "icon_location.png",
+      "source": "publish_help_adoption_page_assets/publish_help_adoption_assets/icons/publish_icon_sheet.png",
+      "sourceSize": [1774, 887],
+      "cropBox": [444, 444, 887, 887],
+      "alphaContentBox": [594, 535, 730, 704],
+      "outputSize": [128, 128],
+      "transparent": true,
+      "risk": "从透明 sheet 归一化输出。"
+    },
+    {
+      "file": "icon_phone.png",
+      "source": "publish_help_adoption_page_assets/publish_help_adoption_assets/icons/publish_icon_sheet.png",
+      "sourceSize": [1774, 887],
+      "cropBox": [887, 444, 1330, 887],
+      "alphaContentBox": [1011, 541, 1171, 700],
+      "outputSize": [128, 128],
+      "transparent": true,
+      "risk": "从透明 sheet 归一化输出。"
+    },
+    {
+      "file": "icon_upload_image.png",
+      "source": "publish_help_adoption_page_assets/publish_help_adoption_assets/icons/publish_icon_sheet.png",
+      "sourceSize": [1774, 887],
+      "cropBox": [1330, 444, 1774, 887],
+      "alphaContentBox": [1429, 545, 1606, 704],
+      "outputSize": [128, 128],
+      "transparent": true,
+      "risk": "从透明 sheet 归一化输出。"
+    }
+  ]
+}

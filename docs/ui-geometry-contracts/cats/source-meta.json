@@ -1,0 +1,34 @@
+{
+  "page": "pages/cats/index",
+  "pageName": "猫咪图鉴",
+  "sourceRole": "页面专属已处理素材包",
+  "sourcePath": "cat_atlas_assets/",
+  "manifestPath": "cat_atlas_assets/manifest.json",
+  "previewPath": "cat_atlas_assets/preview_contact_sheet.jpg",
+  "referenceImage": {
+    "path": "cat_atlas_assets/preview_contact_sheet.jpg",
+    "width": 900,
+    "height": 700,
+    "containsPhoneFrame": false,
+    "containsStatusBar": false,
+    "containsWechatCapsule": false
+  },
+  "target": {
+    "miniprogramRootRole": "微信开发者工具工程的 miniprogramRoot",
+    "pagePath": "pages/cats/index",
+    "assetPath": "static/cats-page/"
+  },
+  "pageStructure": [
+    "自定义顶部标题",
+    "搜索框",
+    "筛选胶囊",
+    "双列猫咪卡片",
+    "自定义底部栏"
+  ],
+  "processingTime": "current task run",
+  "unverified": [
+    "未做微信开发者工具截图验证",
+    "未做真机验证",
+    "未做后端 GET /cats 联调"
+  ]
+}

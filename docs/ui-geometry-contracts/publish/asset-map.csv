@@ -1,0 +1,12 @@
+页面区域,源图相对路径,处理方式,运行素材相对路径,是否透明化,是否允许二次裁剪,备注
+提示横幅,publish_help_adoption_page_assets/publish_help_adoption_assets/banner/publish_tip_banner_01.png,复制完整横幅,static/publish/publish_tip_banner_01.png,否,否,完整提示横幅不透明化不重绘
+上传预览小花,publish_help_adoption_page_assets/publish_help_adoption_assets/thumbnails/publish_upload_thumb_xiaohua.png,复制不透明缩略图,static/publish/publish_upload_thumb_xiaohua.png,否,否,用于表单上传预览
+上传预览小白,publish_help_adoption_page_assets/publish_help_adoption_assets/thumbnails/publish_upload_thumb_xiaobai.png,复制不透明缩略图,static/publish/publish_upload_thumb_xiaobai.png,否,否,用于表单上传预览
+返回图标,publish_help_adoption_page_assets/publish_help_adoption_assets/icons/publish_icon_sheet.png,从图标 sheet 拆分,static/publish/icon_back_arrow.png,是,是,自定义导航返回
+右箭头,publish_help_adoption_page_assets/publish_help_adoption_assets/icons/publish_icon_sheet.png,从图标 sheet 拆分,static/publish/icon_arrow_right.png,是,是,地点选择入口
+上传加号,publish_help_adoption_page_assets/publish_help_adoption_assets/icons/publish_icon_sheet.png,从图标 sheet 拆分,static/publish/icon_plus.png,是,是,上传按钮视觉
+删除图标,publish_help_adoption_page_assets/publish_help_adoption_assets/icons/publish_icon_sheet.png,从图标 sheet 拆分,static/publish/icon_close.png,是,是,删除上传预览
+隐私盾牌,publish_help_adoption_page_assets/publish_help_adoption_assets/icons/publish_icon_sheet.png,从图标 sheet 拆分,static/publish/icon_privacy_shield.png,是,是,底部隐私提示
+定位图标,publish_help_adoption_page_assets/publish_help_adoption_assets/icons/publish_icon_sheet.png,从图标 sheet 拆分,static/publish/icon_location.png,是,是,当前页面暂未显示保留备用
+电话图标,publish_help_adoption_page_assets/publish_help_adoption_assets/icons/publish_icon_sheet.png,从图标 sheet 拆分,static/publish/icon_phone.png,是,是,当前页面暂未显示保留备用
+图片上传图标,publish_help_adoption_page_assets/publish_help_adoption_assets/icons/publish_icon_sheet.png,从图标 sheet 拆分,static/publish/icon_upload_image.png,是,是,当前页面暂未显示保留备用

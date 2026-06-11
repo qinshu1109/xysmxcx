@@ -1,0 +1,27 @@
+{
+  "page": "my-posts",
+  "title": "我的发布",
+  "route": "pages/my-posts/index",
+  "reference": {
+    "source": "用户本轮提供的我的发布效果图",
+    "containsPhoneFrame": true,
+    "containsWechatSystemUi": true
+  },
+  "assetSource": {
+    "directory": "mypost_page_assets/",
+    "manifest": "mypost_page_assets/manifest.json",
+    "readme": "mypost_page_assets/README.md"
+  },
+  "runtimeAssetDir": "static/mypost/",
+  "implementation": {
+    "type": "dynamic-wxml-wxss-with-page-assets",
+    "wholePageImage": false,
+    "mockOnly": true,
+    "futureApi": "GET /me/help-posts"
+  },
+  "unverified": [
+    "未执行微信开发者工具截图对照",
+    "未执行真机验证",
+    "未接入真实后端接口"
+  ]
+}

@@ -1,4 +1,7 @@
-const { helpPageData } = require('../../utils/mockData')
+const { helpPage } = require('../../utils/pageAssets')
+const { getHelpPosts } = require('../../api/helpPosts')
+const { adaptHelpPost } = require('../../utils/adapters')
+const { requireLogin } = require('../../utils/auth')
 
 Page({
   data: {
@@ -6,14 +9,15 @@ Page({
     keyword: '',
     type: 'all',
     statusFilter: 'all',
-    banners: helpPageData.banners,
-    typeFilters: helpPageData.typeFilters,
-    statusFilters: helpPageData.statusFilters,
-    posts: helpPageData.posts,
-    visiblePosts: helpPageData.posts,
+    banners: helpPage.banners,
+    typeFilters: helpPage.typeFilters,
+    statusFilters: helpPage.statusFilters,
+    posts: [],
+    visiblePosts: [],
     page: 1,
+    pageSize: 20,
     hasMore: false,
-    state: 'ready',
+    state: 'loading',
     errorMessage: '',
     navHeight: 88,
     navContentTop: 44,
@@ -22,7 +26,10 @@ Page({
 
   onLoad() {
     this.setLayoutMetrics()
-    this.applyFilters()
+  },
+
+  onShow() {
+    this.loadPosts()
   },
 
   setLayoutMetrics() {
@@ -42,9 +49,10 @@ Page({
 
   onKeywordInput(event) {
     this.setData({
-      keyword: event.detail.value || ''
+      keyword: event.detail.value || '',
+      page: 1
     })
-    this.applyFilters()
+    this.loadPosts()
   },
 
   onTapType(event) {
@@ -54,7 +62,7 @@ Page({
     }
 
     this.setData({ type, page: 1 })
-    this.applyFilters()
+    this.loadPosts()
   },
 
   onTapStatus(event) {
@@ -64,34 +72,51 @@ Page({
     }
 
     this.setData({ statusFilter, page: 1 })
-    this.applyFilters()
+    this.loadPosts()
   },
 
-  applyFilters() {
-    const keyword = this.data.keyword.trim()
-    const type = this.data.type
-    const statusFilter = this.data.statusFilter
-    const visiblePosts = this.data.posts.filter((post) => {
-      const matchedKeyword = !keyword || post.title.indexOf(keyword) >= 0 || post.location.indexOf(keyword) >= 0
-      const matchedType = type === 'all' || post.type === type
-      const matchedStatus = statusFilter === 'all' || post.status === statusFilter
-      return matchedKeyword && matchedType && matchedStatus
+  loadPosts() {
+    this.setData({ state: 'loading', errorMessage: '' })
+    getHelpPosts({
+      keyword: this.data.keyword.trim(),
+      type: this.data.type === 'all' ? '' : this.data.type,
+      status: this.data.statusFilter === 'all' ? '' : this.data.statusFilter,
+      page: this.data.page,
+      pageSize: this.data.pageSize
     })
-
-    this.setData({
-      visiblePosts,
-      state: visiblePosts.length ? 'ready' : 'empty'
-    })
+      .then((data) => {
+        const posts = (data.items || []).map(adaptHelpPost)
+        this.setData({
+          posts,
+          visiblePosts: posts,
+          hasMore: data.page * data.pageSize < data.total,
+          state: posts.length ? 'ready' : 'empty'
+        })
+      })
+      .catch((error) => {
+        this.setData({
+          posts: [],
+          visiblePosts: [],
+          hasMore: false,
+          state: 'error',
+          errorMessage: error && error.message ? error.message : '求助领养列表加载失败'
+        })
+      })
   },
 
   onTapBanner() {
-    wx.navigateTo({
-      url: '/pages/publish/index'
-    })
+    if (requireLogin('/pages/publish/index')) {
+      wx.navigateTo({
+        url: '/pages/publish/index'
+      })
+    }
   },
 
   onTapPost(event) {
-    const id = event.currentTarget.dataset.id || 1
+    const id = event.currentTarget.dataset.id
+    if (!id) {
+      return
+    }
     wx.navigateTo({
       url: `/pages/help-detail/index?id=${id}`
     })

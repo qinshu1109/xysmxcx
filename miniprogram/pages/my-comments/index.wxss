@@ -166,13 +166,41 @@ page {
   text-overflow: ellipsis;
 }
 
+.action-row {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  margin-left: 16rpx;
+}
+
+.delete-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  height: 54rpx;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  border-radius: 999rpx;
+  background: #fff7f5;
+}
+
+.delete-text {
+  display: block;
+  color: #b76b62;
+  font-size: 26rpx;
+  font-weight: 700;
+  line-height: 54rpx;
+  white-space: nowrap;
+}
+
 .detail-button {
   display: flex;
   align-items: center;
   justify-content: center;
   flex: 0 0 auto;
   height: 54rpx;
-  margin-left: 20rpx;
+  margin-left: 12rpx;
   padding: 0 22rpx;
   box-sizing: border-box;
   border-radius: 999rpx;
